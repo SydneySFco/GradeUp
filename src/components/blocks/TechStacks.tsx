@@ -106,7 +106,7 @@ export default function TechStack() {
         {groups.map((g) => {
           const Icon = g.icon;
           return (
-            <Card key={g.title} interactive className="h-full bg-surface border-surface-soft">
+            <Card key={g.title} interactive className="h-full bg-surface border-border-subtle">
               <CardContent className="p-6">
                 <div className="flex items-start justify-between gap-4">
                   <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-accent/20 bg-accent-soft">

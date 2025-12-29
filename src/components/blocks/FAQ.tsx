@@ -44,7 +44,7 @@ export default function FAQ() {
     >
       <div className="grid gap-4">
         {faqs.map((item) => (
-          <Card key={item.q} className="h-full bg-bg border-surface-soft">
+          <Card key={item.q} className="h-full bg-bg border-border-subtle">
             <CardContent className="p-6">
               <details className="group">
                 <summary className="cursor-pointer list-none select-none">

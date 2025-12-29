@@ -106,19 +106,25 @@ function Services() {
         {services.map((s) => {
           const Icon = s.icon;
           return (
-            <Card key={s.title} interactive className="h-full group bg-surface border-surface-soft">
+            <Card key={s.title} interactive className="h-full group bg-surface border-border-subtle">
               <CardContent className="p-8">
                 {/* Icon */}
                 <div className="mb-6">
-                  <div className="inline-flex h-16 w-16 items-center justify-center border-2 border-borders-elevated bg-accent-soft group-hover:border-accent group-hover:bg-accent-soft transition-all">
-                    <Icon className="h-8 w-8 text-accent" />
+                  <div className="inline-flex h-16 w-16 items-center justify-center border-2 group-hover:border-accent group-hover:bg-accent-soft transition-all bg-accent-soft border-border-subtle">
+                    <Icon className="h-8 w-8 text-secondary" />
                   </div>
                 </div>
 
                 {/* Tags */}
                 <div className="mb-4 flex flex-wrap gap-2">
-                  {s.tags.map((t) => (
-                    <Badge key={t} variant="accent" className="bg-accent text-white rounded-full">{t}</Badge>
+                  {s.tags.map((t, idx) => (
+                    <Badge 
+                      key={t} 
+                      variant="accent" 
+                      className={"bg-secondary text-white rounded-full"}
+                    >
+                      {t}
+                    </Badge>
                   ))}
                 </div>
 
@@ -131,7 +137,7 @@ function Services() {
                       key={b}
                       className="flex items-start gap-3 text-sm text-text-secondary"
                     >
-                      <span className="mt-1.5 h-2 w-2 bg-accent flex-shrink-0" aria-hidden="true" />
+                      <span className="mt-1.5 h-2 w-2 bg-secondary flex-shrink-0" aria-hidden="true" />
                       <span className="leading-relaxed">{b}</span>
                     </li>
                   ))}

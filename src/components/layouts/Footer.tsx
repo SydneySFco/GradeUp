@@ -13,7 +13,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="border-t border-surface-soft bg-bg">
+    <footer className="border-t border-border-subtle bg-bg">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 py-16 lg:py-20">
         {/* Main Footer Content */}
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
@@ -104,7 +104,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-surface-soft">
+        <div className="mt-12 pt-8 border-t border-border-subtle">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-sm text-text-muted">
               © {year} Grade Up Solutions. All rights reserved.

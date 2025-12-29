@@ -85,13 +85,13 @@ export default function Process() {
           {steps.map((s) => {
             const Icon = s.icon;
             return (
-              <Card key={s.step} interactive className="relative bg-bg border-surface-soft">
+              <Card key={s.step} interactive className="relative bg-bg border-border-subtle">
                 <CardContent className="p-6">
                   {/* Top row: step + icon */}
                   <div className="flex items-start justify-between">
-                    <Badge variant="accent">{s.step}</Badge>
+                    <Badge variant="neutral" className="bg-secondary text-white rounded-full">{s.step}</Badge>
 
-                    <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-honest/20 bg-honest-soft transition group-hover:border-accent group-hover:bg-accent-soft">
+                    <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border transition group-hover:border-accent group-hover:bg-accent-soft bg-accent-soft border-border-subtle">
                       <Icon className="h-5 w-5 text-trust" />
                     </div>
                   </div>
@@ -105,7 +105,7 @@ export default function Process() {
                         key={b}
                         className="flex items-start gap-2 text-sm text-slate"
                       >
-                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-accent" />
+                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-secondary" />
                         <span className="leading-relaxed">{b}</span>
                       </li>
                     ))}
@@ -114,7 +114,7 @@ export default function Process() {
 
                 {/* Desktop timeline dot */}
                 <div className="pointer-events-none absolute -top-[10px] left-6 hidden lg:block">
-                  <div className="h-5 w-5 rounded-full border-2 border-accent bg-surface-elevated shadow-subtle" />
+                  <div className="h-5 w-5 rounded-full border-2 border-secondary bg-surface-elevated shadow-subtle" />
                 </div>
               </Card>
             );

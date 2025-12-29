@@ -116,7 +116,7 @@ export default function Hero() {
           className="absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
-              "linear-gradient(to right, #0a0a0f 0%, rgba(10, 10, 15, 0.95) 20%, rgba(10, 10, 15, 0.7) 40%, rgba(10, 10, 15, 0.3) 70%, transparent 100%)",
+              "linear-gradient(to right, #1f1f1f 0%, rgba(31, 31, 31, 0.95) 20%, rgba(31, 31, 31, 0.7) 40%, rgba(31, 31, 31, 0.3) 70%, transparent 100%)",
           }}
         />
 
@@ -163,11 +163,8 @@ export default function Hero() {
                 </p>
 
                 <div className="mt-12 flex flex-wrap items-center gap-4">
-                  <Button href="#contact" variant="primary" size="lg">
+                  <Button href="#contact" variant="primary" size="lg" className="bg-accent text-white rounded-full hover:bg-accent-hover hover:border-accent-hover">
                     Schedule Consultation
-                  </Button>
-                  <Button href="/projects" variant="secondary" size="lg">
-                    Our Work
                   </Button>
                 </div>
               </motion.div>
@@ -221,9 +218,9 @@ export default function Hero() {
         </div>
 
         {/* Bottom divider */}
-        <div className="absolute inset-x-0 bottom-0 h-px border-t border-surface-soft" />
+        <div className="absolute inset-x-0 bottom-0 h-px border-t border-secondary/20" />
       </div>
-      <hr className="border-t border-surface-soft mt-0" />
+      <hr className="border-t border-secondary/20 mt-0" />
     </section>
   );
 }

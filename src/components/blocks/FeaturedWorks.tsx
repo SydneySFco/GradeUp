@@ -46,7 +46,7 @@ export default function FeaturedWork() {
     >
       <div className="grid gap-6 lg:grid-cols-3">
         {work.map((item) => (
-          <Card key={item.title} interactive className="h-full bg-surface border-surface-soft">
+          <Card key={item.title} interactive className="h-full bg-surface border-border-subtle">
             <CardContent className="p-8 flex h-full flex-col">
               <CardTitle className="text-xl mb-6">{item.title}</CardTitle>
 
@@ -72,7 +72,7 @@ export default function FeaturedWork() {
                   <ul className="space-y-3">
                     {item.outcomes.map((o) => (
                       <li key={o} className="flex items-start gap-3 text-sm text-text-secondary">
-                        <span className="mt-1.5 h-2 w-2 bg-accent flex-shrink-0" aria-hidden="true" />
+                        <span className="mt-1.5 h-2 w-2 bg-secondary flex-shrink-0" aria-hidden="true" />
                         <span className="leading-relaxed">{o}</span>
                       </li>
                     ))}
@@ -80,8 +80,14 @@ export default function FeaturedWork() {
                 </div>
 
                 <div className="pt-2 flex flex-wrap gap-2">
-                  {item.tech.map((t) => (
-                    <Badge key={t} variant="accent" className="bg-accent text-white rounded-full">{t}</Badge>
+                  {item.tech.map((t, idx) => (
+                    <Badge 
+                      key={t} 
+                      variant="neutral" 
+                      className={"bg-secondary text-white rounded-full"}
+                    >
+                      {t}
+                    </Badge>
                   ))}
                 </div>
               </div>

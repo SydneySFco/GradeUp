@@ -65,7 +65,7 @@ export default function Contact() {
       <div className="w-full">
         {/* Right: form */}
         <div className="w-full">
-          <Card className="bg-surface border-surface-soft">
+          <Card className="bg-surface border-border-subtle">
             <CardContent className="p-6">
               <form onSubmit={onSubmit} className="space-y-4">
                 <div className="grid gap-4 sm:grid-cols-2">

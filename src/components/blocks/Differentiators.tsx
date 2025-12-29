@@ -103,15 +103,15 @@ export default function Differentiators() {
                 <Card
                   key={it.title}
                   interactive
-                  className={`group bg-surface border-surface-soft transition-all ${
-                    isActive ? "border-accent" : ""
+                  className={`group bg-surface border-secondary/30 transition-all ${
+                    isActive ? "border-secondary" : ""
                   }`}
                   onMouseEnter={() => setHoveredIndex(index)}
                 >
                   <CardContent className="p-6 flex items-start gap-6">
                     <div className="flex-shrink-0">
                       {/* Icon container with white background */}
-                      <div className="inline-flex h-20 w-20 items-center justify-center rounded-2xl border-2 border-gray-400 bg-white p-3">
+                      <div className="inline-flex h-20 w-20 items-center justify-center rounded-2xl border p-3 bg-accent-soft border-border-subtle">
                         <Icon className="h-8 w-8 text-accent" />
                       </div>
                     </div>
@@ -151,7 +151,7 @@ export default function Differentiators() {
                           className="flex items-start gap-4 text-lg sm:text-xl text-text-secondary"
                         >
                           <span
-                            className="mt-2 h-3 w-3 bg-accent flex-shrink-0 rounded-full"
+                            className="mt-2 h-3 w-3 bg-secondary flex-shrink-0 rounded-full"
                             aria-hidden="true"
                           />
                           <span className="leading-relaxed">{detail}</span>

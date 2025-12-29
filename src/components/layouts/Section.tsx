@@ -50,7 +50,7 @@ export default function Section({
 
         {children}
       </div>
-      <hr className="border-t border-surface-soft mt-0 mx-auto max-w-7xl" />
+      <hr className="border-t border-secondary/20 mt-0 mx-auto max-w-7xl" />
     </section>
   );
 }

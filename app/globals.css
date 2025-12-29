@@ -1,33 +1,47 @@
 @import "tailwindcss";
 
+/* Light-first Premium Theme */
 @theme {
-  --color-accent: #1052d4;
-  --color-accent-hover: #0052cc;
-  --color-accent-soft: rgba(0, 102, 255, 0.1);
-  --color-accent-light: rgba(0, 102, 255, 0.2);
-  
-  --color-bg: #101622;
-  --color-surface: #121b29;
-  --color-surface-soft: #1f293a;
-  --color-surface-elevated: #121b29;
-  
-  --color-text-primary: #ffffff;
-  --color-text-secondary: #b8b8c8;
-  --color-text-muted: #6b6b7a;
-  
-  --color-border-subtle: #2a2a3a;
-  --color-border-soft: #1f1f2e;
-  --color-borders-elevated: #3a3a4a;
-  
-  --color-secondary: #2a2a3a;
-  --color-secondary-hover: #3a3a4a;
-  
-  --color-trust: #ffffff;
-  --color-honest: #1f1f2e;
-  --color-honest-soft: rgba(31, 31, 46, 0.5);
-  
-  --color-success: #22c55e;
-  --color-error: #ef4444;
+  /* Accents (color + soft washes) */
+  --color-accent: #2f6bff;
+  --color-accent-hover: #1f57e7;
+  --color-accent-soft: rgba(47, 107, 255, 0.1);
+  --color-accent-light: rgba(47, 107, 255, 0.18);
+
+  --color-accent-2: #00b3a4;
+  --color-accent-2-soft: rgba(0, 179, 164, 0.1);
+
+  /* Base surfaces (light) */
+  /* Base surfaces (light) */
+  --color-bg: #ffffff;
+  --color-surface: #f6f7fb;
+  --color-surface-soft: #fbfcff;
+  --color-surface-elevated: #ffffff;
+
+  /* Text (dark on light) */
+  --color-text-primary: #0b0b0b;
+  --color-text-secondary: #4b5563;
+  --color-text-muted: #8a94a6;
+  --color-slate: #4b5563;
+
+  /* Borders (soft) */
+  --color-border-subtle: #e7eaf1;
+  --color-border-soft: #eef1f7;
+  --color-borders-elevated: #dde3ee;
+  --color-borders-subtle: #e7eaf1;
+
+  /* Secondary neutrals */
+  --color-secondary: #f3f4f6;
+  --color-secondary-hover: #e9edf3;
+
+  /* Trust / Honest blocks (light versions) */
+  --color-trust: #0b0b0b;
+  --color-honest: #111827;
+  --color-honest-soft: rgba(17, 24, 39, 0.08);
+
+  /* Feedback */
+  --color-success: #16a34a;
+  --color-error: #dc2626;
 }
 
 @layer base {
@@ -36,8 +50,20 @@
   }
 
   body {
-    background-color: #101622;
-    color: #ffffff;
-    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(
+      180deg,
+      #ffffff 0%,
+      rgba(47, 107, 255, 0.06) 40%,
+      rgba(0, 179, 164, 0.05) 100%
+    );
+    color: var(--color-text-primary);
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+      Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    min-height: 100vh;
+  }
+
+  /* Anchor jumps should not hide headings behind fixed navbar */
+  section {
+    scroll-margin-top: 88px;
   }
 }

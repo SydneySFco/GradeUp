@@ -38,12 +38,16 @@ const sizes: Record<ButtonSize, string> = {
 };
 
 const variants: Record<ButtonVariant, string> = {
+  // primary:
+  //   "bg-[#0066ff] text-white border-2 border-[#0066ff] gap-2 " +
+  //   "hover:bg-[#0052cc] hover:border-[#0052cc] hover:shadow-lg hover:shadow-[#0066ff]/20 active:scale-[0.98]",
   primary:
-    "bg-[#0066ff] text-white border-2 border-[#0066ff] gap-2 " +
-    "hover:bg-[#0052cc] hover:border-[#0052cc] hover:shadow-lg hover:shadow-[#0066ff]/20 active:scale-[0.98]",
+    "bg-accent text-bg border border-accent " +
+    "hover:shadow-[0_20px_50px_rgba(47,107,255,0.25)] hover:-translate-y-[1px]",
+
   secondary:
-    "bg-[#2a2a3a] text-white border-2 border-[#2a2a3a] gap-2 " +
-    "hover:bg-[#3a3a4a] hover:border-[#3a3a4a] active:scale-[0.98]",
+    "bg-secondary text-white border-2 border-secondary gap-2 " +
+    "hover:bg-secondary-hover hover:border-secondary-hover active:scale-[0.98]",
   ghost:
     "bg-transparent text-white border-2 border-transparent " +
     "hover:bg-surface hover:border-borders-subtle active:scale-[0.98]",
@@ -69,10 +73,14 @@ export function Button(props: ButtonProps) {
   } = props as ButtonProps;
 
   const cls = cn(base, sizes[size], variants[variant], className);
-  
+
   // Add icon based on variant
-  const icon = variant === "primary" ? <ArrowRight className="h-4 w-4" /> : 
-               variant === "secondary" ? <FolderOpen className="h-4 w-4" /> : null;
+  const icon =
+    variant === "primary" ? (
+      <ArrowRight className="h-4 w-4" />
+    ) : variant === "secondary" ? (
+      <FolderOpen className="h-4 w-4" />
+    ) : null;
 
   // Link mode
   if ("href" in props) {

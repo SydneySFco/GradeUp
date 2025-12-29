@@ -15,11 +15,11 @@ export function Card({
   return (
     <div
       className={cn(
-        "border-2 border-borders-subtle rounded-2xl",
+        "border border-secondary/30 rounded-2xl",
         tone === "soft" ? "bg-surface-soft" : "bg-surface-elevated",
         "shadow-card",
         interactive &&
-          "transition-all duration-200 hover:shadow-card-hover hover:border-accent/60 hover:-translate-y-1 active:translate-y-0",
+          "transition-all duration-200 hover:shadow-card-hover hover:border-secondary/60 hover:-translate-y-1 active:translate-y-0",
         className
       )}
       {...props}
