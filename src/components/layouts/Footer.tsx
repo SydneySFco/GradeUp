@@ -13,7 +13,9 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="border-t border-border-subtle bg-bg">
+    <footer className="bg-bg">
+      {/* Top separator */}
+      <div className="h-px bg-gradient-to-r from-transparent via-border-subtle to-transparent" />
       <div className="mx-auto max-w-7xl px-6 sm:px-8 py-16 lg:py-20">
         {/* Main Footer Content */}
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
@@ -22,7 +24,7 @@ export default function Footer() {
             <h3 className="text-xl font-bold tracking-tight text-trust mb-4">
               Grade Up Solutions
             </h3>
-            <p className="text-base leading-relaxed text-text-secondary max-w-md mb-6">
+            <p className="text-lg sm:text-xl leading-relaxed text-text-secondary max-w-md mb-6">
               Modern engineering, calm execution, and premium delivery — for
               startups and digital teams.
             </p>
@@ -70,11 +72,11 @@ export default function Footer() {
               Connect
             </h4>
             <div className="space-y-4">
-              <div>
-                <p className="text-xs text-text-muted mb-1">Email</p>
+              <div className="flex flex-col items-start justify-between">
+                <p className="text-xs text-text-muted mb-3">Email</p>
                 <a
                   href="mailto:info@gradeup.solutions"
-                  className="text-base font-medium text-trust hover:text-accent transition-colors block"
+                  className="inline-flex items-center gap-2 py-2.5 text-sm ransition-all rounded-full"
                 >
                   info@gradeup.solutions
                 </a>

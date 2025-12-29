@@ -21,13 +21,12 @@ export default function Navbar() {
     []
   );
 
-  const [alpha, setAlpha] = useState(0); // Başlangıçta tam şeffaf
+  const [alpha, setAlpha] = useState(0); // Scroll ile opacity artar
 
   useEffect(() => {
     const onScroll = () => {
-      // Başlangıçta tam şeffaf, scroll ile beyaza dönüşür
       const y = window.scrollY || 0;
-      // 0px -> 0 (tam şeffaf), 200px -> 1 (tam opak beyaz)
+      // 0px -> 0, 200px -> 1
       const a = clamp(y / 200, 0, 1);
       setAlpha(a);
     };
@@ -37,21 +36,24 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Başlangıçta tam şeffaf, scroll ile opak hale gelir
-  const background = alpha > 0 ? `rgba(16, 22, 34, ${alpha * 0.95})` : "transparent";
-  const border = alpha > 0 ? `rgba(0, 0, 0, ${alpha * 0.1})` : "transparent";
+  // Sayfa background'u ile eşleşen gradient (scroll ile biraz daha opak)
+  const backgroundOpacity = 0.95 + (alpha * 0.05); // 0.95 -> 1.0
+  const background = `linear-gradient(180deg, 
+    rgba(255, 255, 255, ${backgroundOpacity}) 0%, 
+    rgba(47, 107, 255, ${0.06 * backgroundOpacity}) 42%, 
+    rgba(0, 179, 164, ${0.05 * backgroundOpacity}) 100%
+  )`;
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <div
-        className="transition-[background-color,box-shadow,border-color,backdrop-filter] duration-300 ease-out"
+        className="transition-all duration-300 ease-out"
         style={{
-          backgroundColor: background,
-          borderBottom: `1px solid ${border}`,
-          backdropFilter: alpha > 0.1 ? "blur(20px) saturate(180%)" : "none",
+          background: alpha > 0.1 ? background : "transparent",
+          backdropFilter: alpha > 0.1 ? "blur(20px) saturate(180%)" : "",
           WebkitBackdropFilter:
-            alpha > 0.1 ? "blur(20px) saturate(180%)" : "none",
-          boxShadow: alpha > 0.3 ? "0 8px 32px rgba(0, 0, 0, 0.1)" : "none",
+            alpha > 0.1 ? "blur(20px) saturate(180%)" : "",
+          boxShadow: alpha > 0.3 ? "0 8px 32px rgba(0, 0, 0, 0.08) border-b border-border-subtle" : "",
         }}
       >
         <div className="mx-auto max-w-content px-6">
@@ -59,10 +61,7 @@ export default function Navbar() {
             {/* Left: Logo */}
             <Link
               href="/"
-              className="text-sm font-semibold tracking-tight transition-colors duration-300"
-              style={{
-                color: alpha > 0.3 ? "#000000" : "#FFFFFF",
-              }}
+              className="text-sm font-semibold tracking-tight text-trust transition-colors duration-300 hover:text-accent"
             >
               Logo
             </Link>
@@ -73,10 +72,7 @@ export default function Navbar() {
                 <a
                   key={it.href}
                   href={it.href}
-                  className="text-sm transition-colors duration-300"
-                  style={{
-                    color: "#FFFFFF",
-                  }}
+                  className="text-sm text-text-secondary transition-colors duration-300 hover:text-trust"
                 >
                   {it.label}
                 </a>

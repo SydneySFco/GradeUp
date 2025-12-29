@@ -58,7 +58,7 @@ export default function Contact() {
     <Section
       id="contact"
       eyebrow="Contact"
-      title="Still have questions? Let’s contact us."
+      title="“Tell us the problem - we’ll tell you how we’d solve it.”"
       subtitle="Tell us what you’re building — we’ll respond with a clear next step."
       className="bg-bg py-10"
     >
@@ -123,7 +123,7 @@ export default function Contact() {
                   </p>
 
                   <Button type="submit" variant="primary" className="bg-accent text-white rounded-full hover:bg-accent-hover hover:border-accent-hover">
-                    Send message
+                    Get a clear solution
                   </Button>
                 </div>
               </form>

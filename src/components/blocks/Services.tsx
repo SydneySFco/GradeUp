@@ -106,12 +106,12 @@ function Services() {
         {services.map((s) => {
           const Icon = s.icon;
           return (
-            <Card key={s.title} interactive className="h-full group bg-surface border-border-subtle">
+            <Card key={s.title} interactive className="h-full group bg-surface border-border-subtle box-shadow-card">
               <CardContent className="p-8">
                 {/* Icon */}
                 <div className="mb-6">
-                  <div className="inline-flex h-16 w-16 items-center justify-center border-2 group-hover:border-accent group-hover:bg-accent-soft transition-all bg-accent-soft border-border-subtle">
-                    <Icon className="h-8 w-8 text-secondary" />
+                  <div className="inline-flex h-16 w-16 items-center justify-center border-2 group-hover:bg-[color:var(--color-accent-2-soft)] transition-all bg-accent-soft border-border-subtle rounded-xl text-text-secondary">
+                    <Icon className="h-8 w-8 text-text-secondary" />
                   </div>
                 </div>
 
@@ -121,7 +121,7 @@ function Services() {
                     <Badge 
                       key={t} 
                       variant="accent" 
-                      className={"bg-secondary text-white rounded-full"}
+                      className={"bg-secondary text-text-secondary rounded-full"}
                     >
                       {t}
                     </Badge>

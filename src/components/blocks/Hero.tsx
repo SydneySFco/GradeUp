@@ -112,13 +112,14 @@ export default function Hero() {
         </AnimatePresence>
 
         {/* Gradient overlay - Soldan sağa transparent (0->100) */}
-        <div
+        {/* <div
           className="absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
               "linear-gradient(to right, #1f1f1f 0%, rgba(31, 31, 31, 0.95) 20%, rgba(31, 31, 31, 0.7) 40%, rgba(31, 31, 31, 0.3) 70%, transparent 100%)",
           }}
-        />
+        /> */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--color-accent-soft)] via-white/40 to-[color:var(--color-accent-2-soft)]" />
 
         {/* Content */}
         <div className="relative z-20 mx-auto max-w-7xl px-6 pt-32 lg:pt-40 h-full flex flex-col justify-between">

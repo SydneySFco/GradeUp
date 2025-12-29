@@ -111,7 +111,7 @@ export default function Differentiators() {
                   <CardContent className="p-6 flex items-start gap-6">
                     <div className="flex-shrink-0">
                       {/* Icon container with white background */}
-                      <div className="inline-flex h-20 w-20 items-center justify-center rounded-2xl border p-3 bg-accent-soft border-border-subtle">
+                      <div className="inline-flex h-20 w-20 items-center justify-center rounded-2xl border p-3 bg-accent-soft border-border-subtle group-hover:bg-[color:var(--color-accent-2-soft)]">
                         <Icon className="h-8 w-8 text-accent" />
                       </div>
                     </div>

@@ -46,7 +46,7 @@ export default function FeaturedWork() {
     >
       <div className="grid gap-6 lg:grid-cols-3">
         {work.map((item) => (
-          <Card key={item.title} interactive className="h-full bg-surface border-border-subtle">
+          <Card key={item.title} interactive className="h-full bg-surface border-border-subtle box-shadow-card">
             <CardContent className="p-8 flex h-full flex-col">
               <CardTitle className="text-xl mb-6">{item.title}</CardTitle>
 
@@ -84,7 +84,7 @@ export default function FeaturedWork() {
                     <Badge 
                       key={t} 
                       variant="neutral" 
-                      className={"bg-secondary text-white rounded-full"}
+                      className={"bg-secondary text-text-secondary rounded-full"}
                     >
                       {t}
                     </Badge>

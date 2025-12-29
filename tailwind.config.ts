@@ -5,7 +5,7 @@ export default {
         "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
         "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
         "./app/**/*.{js,ts,jsx,tsx,mdx}",
-        "./components/**/*.{js,ts,jsx,tsx,mdx}",      
+        "./components/**/*.{js,ts,jsx,tsx,mdx}",
     ],
     theme: {
         extend: {
@@ -28,6 +28,10 @@ export default {
                 accent: {
                     DEFAULT: "var(--color-accent)",
                     soft: "var(--color-accent-soft)",
+                },
+                "accent-2": {
+                    DEFAULT: "var(--color-accent-2)",
+                    soft: "var(--color-accent-2-soft)",
                 },
             },
             // Colors are now defined in @theme directive in globals.css

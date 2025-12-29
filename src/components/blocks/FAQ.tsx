@@ -44,18 +44,18 @@ export default function FAQ() {
     >
       <div className="grid gap-4">
         {faqs.map((item) => (
-          <Card key={item.q} className="h-full bg-bg border-border-subtle">
+          <Card key={item.q} className="h-full bg-bg border-0 shadow-soft transition-all duration-300 group-open:bg-surface-soft group-open:shadow-subtle">
             <CardContent className="p-6">
               <details className="group">
                 <summary className="cursor-pointer list-none select-none">
                   <div className="flex items-start justify-between gap-4">
                     <p className="text-sm font-semibold text-trust">
                       {item.q}
-                    </p>
+                      </p>
 
                     {/* chevron */}
                     <span
-                      className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-lg border border-honest/20 bg-honest-soft text-trust transition group-open:rotate-180 group-open:bg-accent-soft group-open:border-accent/40"
+                      className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-lg border border-honest/20 bg-honest-soft text-trust transition-all duration-300 ease-out group-open:rotate-180 group-open:bg-accent-soft group-open:border-accent/40"
                       aria-hidden="true"
                     >
                       ↓
@@ -63,9 +63,11 @@ export default function FAQ() {
                   </div>
                 </summary>
 
-                <p className="mt-4 text-sm leading-relaxed text-slate">
-                  {item.a}
-                </p>
+                <div className="overflow-hidden">
+                  <p className="mt-4 text-sm leading-relaxed text-slate opacity-0 max-h-0 transition-all duration-300 ease-out group-open:opacity-100 group-open:max-h-96">
+                    {item.a}
+                  </p>
+                </div>
               </details>
             </CardContent>
           </Card>

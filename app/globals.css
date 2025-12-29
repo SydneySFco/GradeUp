@@ -53,7 +53,7 @@
     background: linear-gradient(
       180deg,
       #ffffff 0%,
-      rgba(47, 107, 255, 0.06) 40%,
+      rgba(47, 107, 255, 0.06) 42%,
       rgba(0, 179, 164, 0.05) 100%
     );
     color: var(--color-text-primary);
