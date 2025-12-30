@@ -11,12 +11,10 @@ const clamp = (n: number, min: number, max: number) =>
 export default function Navbar() {
   const items: NavItem[] = useMemo(
     () => [
-      { label: "Services", href: "#services" },
       { label: "Work", href: "#work" },
       { label: "Process", href: "#process" },
+      { label: "Services", href: "#services" },
       { label: "Tech", href: "#tech" },
-      { label: "FAQ", href: "#faq" },
-      { label: "Contact", href: "#contact" },
     ],
     []
   );

@@ -58,8 +58,8 @@ export default function Contact() {
     <Section
       id="contact"
       eyebrow="Contact"
-      title="“Tell us the problem - we’ll tell you how we’d solve it.”"
-      subtitle="Tell us what you’re building — we’ll respond with a clear next step."
+      title="Let’s talk."
+      subtitle="Share goals + constraints. We’ll reply with a clear plan and next steps."
       className="bg-bg py-10"
     >
       <div className="w-full">

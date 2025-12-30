@@ -7,7 +7,12 @@ import {
   CardTitle,
 } from "@/src/components/ui/Card";
 import Section from "@/src/components/layouts/Section";
-import { Gauge, ShieldCheck, Sparkles, Workflow } from "lucide-react";
+import {
+  Hammer,
+  MessageSquareText,
+  Rocket,
+  Route,
+} from "lucide-react";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -22,59 +27,54 @@ type Item = {
 
 const items: Item[] = [
   {
-    icon: Sparkles,
-    title: "Clarity, not chaos",
+    icon: MessageSquareText,
+    title: "Working Session First",
     subtitle:
-      "We transform complex requirements into streamlined, actionable roadmaps. No ambiguity, just a clear path to production ready code.",
+      "We start with a hands-on session to align fast and remove uncertainty.",
     imageSrc: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
     imageAlt: "Clear roadmap and planning process",
     details: [
-      "Requirements analysis and technical discovery",
-      "Structured roadmaps with clear milestones",
-      "No scope creep or ambiguous deliverables",
-      "Production-ready code from day one",
+      "Clarify goals, constraints, and 'definition of done'",
+      "Identify risks early (tech, scope, timeline)",
+      "Turn the problem into a shared, executable plan",
     ],
   },
   {
-    icon: ShieldCheck,
-    title: "Senior level execution",
-    subtitle:
-      "Direct access to elite engineers. No junior trainees or hidden outsourcing—just seasoned experts solving your toughest challenges.",
+    icon: Route,
+    title: "Strategy + Plan with Milestones",
+    subtitle: "A simple roadmap with clear priorities and acceptance criteria.",
     imageSrc: "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
     imageAlt: "Senior engineering team collaboration",
     details: [
-      "Elite engineers with 10+ years experience",
-      "No junior developers or hidden outsourcing",
-      "Direct access to decision-makers",
-      "Proven track record with complex systems",
+      "Break scope into milestones and deliverables",
+      "Define acceptance criteria and success metrics",
+      "Set cadence: demos, updates, and feedback loop",
     ],
   },
   {
-    icon: Workflow,
-    title: "Predictable delivery",
+    icon: Hammer,
+    title: "Senior-Level Build",
     subtitle:
-      "Reliable sprints and transparent velocity. We hit deadlines with precision, ensuring your go-to-market strategy stays on track.",
+      "Production-grade delivery with quality built in — not bolted on.",
     imageSrc: "https://images.unsplash.com/photo-1552664730-d307ca884978",
     imageAlt: "Predictable delivery and sprint planning",
     details: [
-      "Transparent sprint planning and velocity",
-      "Reliable deadlines with precision",
-      "Clear communication and regular updates",
-      "Go-to-market strategy stays on track",
+      "Clean architecture, readable code, consistent patterns",
+      "Performance + accessibility as defaults",
+      "Review discipline and stable delivery workflow",
     ],
   },
   {
-    icon: Gauge,
-    title: "Performance UI built-in",
+    icon: Rocket,
+    title: "Excellent Outcomes",
     subtitle:
-      "Speed isn't an afterthought. We bake performance budgets into the design phase, delivering interfaces that feel instant and luxurious.",
+      "We ship in increments, measure impact, and improve what matters.",
     imageSrc: "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
     imageAlt: "High performance user interface",
     details: [
-      "Performance budgets in design phase",
-      "Core Web Vitals optimization",
-      "Instant and luxurious user experience",
-      "Mobile-first performance approach",
+      "Visible progress through incremental releases",
+      "Outcomes focused: speed, reliability, UX quality",
+      "Launch-ready mindset: monitoring, ownership, follow-ups",
     ],
   },
 ];
@@ -87,9 +87,9 @@ export default function Differentiators() {
     <>
       <Section
         id="why"
-        eyebrow="WHY US"
-        title="Our Difference"
-        subtitle="We move beyond the transactional vendor relationship to become a strategic extension of your core team, delivering excellence at every layer of the stack."
+        eyebrow=""
+        title="Grade Up. Because..."
+        subtitle="From the first working session to launch — we keep execution clear, predictable, and outcome-driven."
         className="pt-10 sm:pt-12 lg:pt-14 py-10 bg-bg"
         subtitleClassName="max-w-full"
       >
@@ -129,7 +129,7 @@ export default function Differentiators() {
           </div>
 
           {/* Right: Details */}
-          <div className="lg:sticky lg:top-24 lg:h-fit flex items-center">
+          <div className="lg:sticky lg:top-24 lg:h-fit flex flex-col items-center">
             <AnimatePresence mode="wait">
               {activeItem && (
                 <motion.div

@@ -106,7 +106,11 @@ function Services() {
         {services.map((s) => {
           const Icon = s.icon;
           return (
-            <Card key={s.title} interactive className="h-full group bg-surface border-border-subtle box-shadow-card">
+            <Card
+              key={s.title}
+              interactive
+              className="h-full group bg-surface border-border-subtle box-shadow-card"
+            >
               <CardContent className="p-8">
                 {/* Icon */}
                 <div className="mb-6">
@@ -118,10 +122,12 @@ function Services() {
                 {/* Tags */}
                 <div className="mb-4 flex flex-wrap gap-2">
                   {s.tags.map((t, idx) => (
-                    <Badge 
-                      key={t} 
-                      variant="accent" 
-                      className={"bg-secondary text-text-secondary rounded-full"}
+                    <Badge
+                      key={t}
+                      variant="accent"
+                      className={
+                        "bg-secondary text-text-secondary rounded-full"
+                      }
                     >
                       {t}
                     </Badge>
@@ -129,7 +135,9 @@ function Services() {
                 </div>
 
                 <CardTitle className="mb-3 text-xl">{s.title}</CardTitle>
-                <CardDescription className="text-base mb-6">{s.subtitle}</CardDescription>
+                <CardDescription className="text-base mb-6">
+                  {s.subtitle}
+                </CardDescription>
 
                 <ul className="space-y-3">
                   {s.bullets.map((b) => (
@@ -137,7 +145,10 @@ function Services() {
                       key={b}
                       className="flex items-start gap-3 text-sm text-text-secondary"
                     >
-                      <span className="mt-1.5 h-2 w-2 bg-secondary flex-shrink-0" aria-hidden="true" />
+                      <span
+                        className="mt-1.5 h-2 w-2 bg-secondary flex-shrink-0"
+                        aria-hidden="true"
+                      />
                       <span className="leading-relaxed">{b}</span>
                     </li>
                   ))}
@@ -148,18 +159,22 @@ function Services() {
         })}
       </div>
 
-      {/* Modern CTA strip */}
-      <div className="mt-16 grid md:grid-cols-2 gap-8 items-center border-2 border-borders-elevated bg-surface p-10 shadow-card rounded-2xl">
+      <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border border-borders-elevated bg-honest-soft p-6 shadow-card rounded-2xl">
         <div>
-          <p className="text-2xl font-bold text-trust mb-3">
+          <p className="text-base font-semibold text-trust">
             Not sure where your project fits?
           </p>
-          <p className="text-lg text-text-secondary">
-            Tell us what you&apos;re building — we&apos;ll recommend a clear approach.
+          <p className="mt-1 text-sm text-slate">
+            Tell us what you&apos;re building — we&apos;ll recommend a clear
+            approach.
           </p>
         </div>
         <div className="flex justify-end">
-          <Button href="#contact" variant="primary" size="lg" className="bg-accent text-white rounded-full hover:bg-accent-hover hover:border-accent-hover">
+          <Button
+            href="#contact"
+            variant="secondary"
+            className="bg-accent text-white rounded-full hover:bg-accent-hover hover:border-accent-hover"
+          >
             Book a call
           </Button>
         </div>

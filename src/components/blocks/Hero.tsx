@@ -24,29 +24,30 @@ export default function Hero() {
     () => [
       {
         imageSrc:
-          "https://images.unsplash.com/photo-1517048676732-d65bc937f952",
+          "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2400&auto=format&fit=crop",
         imageAlt: "Team collaboration and successful product work",
-        title: "Ship faster, scale smarter",
-        titleSecondLine: "without the chaos.",
-        subtitle: "We transform ambitious ideas into production-ready products. No fluff, just execution that moves the needle.",
+        title: "Ship faster.",
+        titleSecondLine: "Stay predictable..",
+        subtitle:
+          "We turn ambitious ideas into production-ready products — with clear scope, tight feedback loops, and clean execution.",
       },
       {
         imageSrc:
-          "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
+          "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2400&auto=format&fit=crop",
         imageAlt: "Collaborative team working on a project",
-        title: "Elite engineering",
-        titleSecondLine: "on your timeline.",
+        title: "Senior engineering",
+        titleSecondLine: "that fits your team.",
         subtitle:
-          "Senior-level talent, predictable delivery, and zero handoffs. We're the extension of your team that actually delivers.",
+          "We work as an extension of your team, reduce handoffs, and deliver with the standards your roadmap depends on.",
       },
       {
         imageSrc:
-          "https://images.unsplash.com/photo-1600880292203-757bb62b4baf",
+          "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2400&auto=format&fit=crop",
         imageAlt: "Successful team working on a project",
-        title: "We build what matters",
-        titleSecondLine: "not what's trendy.",
+        title: "Build what matters.",
+        titleSecondLine: "Measure the impact.",
         subtitle:
-          "We cut through the noise. Modern stack, proven patterns, and outcomes that matter—not buzzwords that fade.",
+          "Modern stack, proven patterns, and outcomes you can track — performance, reliability, and UX quality.",
       },
     ],
     []
@@ -112,14 +113,14 @@ export default function Hero() {
         </AnimatePresence>
 
         {/* Gradient overlay - Soldan sağa transparent (0->100) */}
-        {/* <div
+        <div
           className="absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
               "linear-gradient(to right, #1f1f1f 0%, rgba(31, 31, 31, 0.95) 20%, rgba(31, 31, 31, 0.7) 40%, rgba(31, 31, 31, 0.3) 70%, transparent 100%)",
           }}
-        /> */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--color-accent-soft)] via-white/40 to-[color:var(--color-accent-2-soft)]" />
+        />
+        {/* <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--color-accent-soft)] via-white/40 to-[color:var(--color-accent-2-soft)]" /> */}
 
         {/* Content */}
         <div className="relative z-20 mx-auto max-w-7xl px-6 pt-32 lg:pt-40 h-full flex flex-col justify-between">
@@ -142,7 +143,7 @@ export default function Hero() {
                 </div> */}
 
                 <h1 className="text-5xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-balance leading-[1.1]">
-                  <span className="text-text-primary block">
+                  <span className="text-white block">
                     {active.title}
                   </span>
                   <span
@@ -164,7 +165,12 @@ export default function Hero() {
                 </p>
 
                 <div className="mt-12 flex flex-wrap items-center gap-4">
-                  <Button href="#contact" variant="primary" size="lg" className="bg-accent text-white rounded-full hover:bg-accent-hover hover:border-accent-hover">
+                  <Button
+                    href="#contact"
+                    variant="primary"
+                    size="lg"
+                    className="bg-accent text-white rounded-full hover:bg-accent-hover hover:border-accent-hover"
+                  >
                     Schedule Consultation
                   </Button>
                 </div>
