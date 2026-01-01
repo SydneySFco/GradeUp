@@ -13,25 +13,43 @@ type WorkItem = {
 
 const work: WorkItem[] = [
   {
-    title: "B2B Analytics Dashboard",
-    problem: "Stakeholders needed faster, clearer reporting across teams and roles.",
-    whatWeDid: "Designed a role-based portal with a clean data layer and admin workflows.",
-    outcomes: ["Reduced reporting friction", "Improved performance and UX consistency"],
-    tech: ["Next.js", "TypeScript", "Postgres", "RBAC"],
+    title: "ParaMe",
+    problem:
+      "People with disabilities struggled to find accessible sports and training opportunities tailored to their needs in their local area.",
+    whatWeDid:
+      "Built a user-friendly platform connecting individuals with disabilities to suitable sports activities and training programs with comprehensive filtering and location-based search.",
+    outcomes: [
+      "Improved access to sports activities for people with disabilities",
+      "Better matching between individuals and opportunities",
+      "Enhanced community engagement",
+    ],
+    tech: ["React", "Styled Components", "Redux", "Gatsby", "MySQL"],
   },
   {
-    title: "Marketplace Mobile App",
-    problem: "A multi-sided product needed reliable onboarding and a smooth purchase flow.",
-    whatWeDid: "Built core user journeys with scalable architecture and release-ready stability.",
-    outcomes: ["Higher funnel completion", "More predictable releases"],
-    tech: ["React Native", "Payments", "API Design", "CI/CD"],
+    title: "Adeptive Digital",
+    problem:
+      "Adeptive needed a modern, engaging website that demonstrates their ability to transform complex software and digital needs into user-friendly, sustainable systems.",
+    whatWeDid:
+      "Created a dynamic, visually appealing website with smooth animations and modern design that showcases the agency's portfolio and services effectively.",
+    outcomes: [
+      "Enhanced brand presence and credibility",
+      "Better client engagement and lead generation",
+      "Showcase of technical capabilities",
+    ],
+    tech: ["Next.js", "Tailwind", "Redux", "Sanity", "GSAP"],
   },
   {
-    title: "AI-Assisted Operations Tool",
-    problem: "Manual internal workflows were slowing down operations and decision-making.",
-    whatWeDid: "Automated summaries, routing, and repetitive tasks with pragmatic AI features.",
-    outcomes: ["Less manual work", "Faster internal response time"],
-    tech: ["AI", "Automation", "Integrations", "Observability"],
+    title: "Physiotherapy Website",
+    problem:
+      "Individuals seeking physical therapy services needed easier access to expert physiotherapists and personalized treatment programs for musculoskeletal disorders and rehabilitation.",
+    whatWeDid:
+      "Developed an online platform connecting patients with expert physiotherapists, enabling personalized treatment programs and easy access to reliable expertise.",
+    outcomes: [
+      "Improved access to physiotherapy services",
+      "Personalized treatment programs",
+      "Better patient-physiotherapist matching",
+    ],
+    tech: ["Next.js", "React", "Redux", "Framer Motion", "Tailwind"],
   },
 ];
 
@@ -72,7 +90,7 @@ export default function FeaturedWork() {
                   <ul className="space-y-3">
                     {item.outcomes.map((o) => (
                       <li key={o} className="flex items-start gap-3 text-sm text-text-secondary">
-                        <span className="mt-1.5 h-2 w-2 bg-secondary flex-shrink-0" aria-hidden="true" />
+                        <span className="mt-1.5 h-2 w-2 bg-accent flex-shrink-0 rounded-full" aria-hidden="true" />
                         <span className="leading-relaxed">{o}</span>
                       </li>
                     ))}

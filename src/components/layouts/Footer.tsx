@@ -45,7 +45,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Navigation Section */}
           <div className="lg:col-span-4">
             <h4 className="text-sm font-semibold tracking-[0.1em] uppercase text-text-muted mb-6">
               Navigation

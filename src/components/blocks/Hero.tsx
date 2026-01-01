@@ -39,8 +39,8 @@ export default function Hero() {
           "https://images.unsplash.com/photo-1517048676732-d65bc937f952"
         ),
         imageAlt: "Team collaboration and successful product work",
-        title: "Ship faster.",
-        titleSecondLine: "Stay predictable..",
+        title: "Ship faster. ",
+        titleSecondLine: "Stay predictable.",
         subtitle:
           "We turn ambitious ideas into production-ready products — with clear scope, tight feedback loops, and clean execution.",
       },

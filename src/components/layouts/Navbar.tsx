@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import { usePathname } from "next/navigation";
 
 type NavItem = { label: string; href: string };
 
@@ -9,24 +10,33 @@ const clamp = (n: number, min: number, max: number) =>
   Math.min(Math.max(n, min), max);
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const isProjectsPage = pathname === "/projects";
+
   const items: NavItem[] = useMemo(
     () => [
       { label: "Work", href: "#work" },
       { label: "Process", href: "#process" },
       { label: "Services", href: "#services" },
       { label: "Tech", href: "#tech" },
-      { label: "Contact", href: "#contact" },
     ],
     []
   );
 
-  const [alpha, setAlpha] = useState(0);
+  // On projects page, start with visible navbar (white background)
+  const [alpha, setAlpha] = useState(isProjectsPage ? 0.5 : 0);
   const [activeSection, setActiveSection] = useState<string>("");
 
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY || 0;
-      const a = clamp(y / 200, 0, 1);
+      let a = clamp(y / 200, 0, 1);
+      
+      // On projects page, ensure minimum alpha for visibility
+      if (isProjectsPage) {
+        a = Math.max(a, 0.3);
+      }
+      
       setAlpha(a);
     };
 
@@ -35,7 +45,7 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
 
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isProjectsPage]);
 
   useEffect(() => {
     const sections = items.map((item) => {
@@ -127,14 +137,18 @@ export default function Navbar() {
     rgba(0, 179, 164, ${0.05 * backgroundOpacity}) 100%
   )`;
 
+  // On projects page, always show background and use dark text
+  const shouldShowBackground = isProjectsPage || alpha > 0.1;
+  const shouldUseDarkText = isProjectsPage || alpha > 0.1;
+
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <div
         className="transition-all duration-200 ease-out"
         style={{
-          background: alpha > 0.1 ? background : "transparent",
-          backdropFilter: alpha > 0.1 ? "blur(20px) saturate(180%)" : "",
-          WebkitBackdropFilter: alpha > 0.1 ? "blur(20px) saturate(180%)" : "",
+          background: shouldShowBackground ? background : "transparent",
+          backdropFilter: shouldShowBackground ? "blur(20px) saturate(180%)" : "",
+          WebkitBackdropFilter: shouldShowBackground ? "blur(20px) saturate(180%)" : "",
           boxShadow:
             alpha > 0.3
               ? "0 8px 32px rgba(0, 0, 0, 0.08) border-b border-border-subtle"
@@ -145,7 +159,11 @@ export default function Navbar() {
           <div className="flex h-16 items-center justify-between">
             <Link
               href="/"
-              className="text-sm font-semibold tracking-tight text-trust transition-colors duration-200 hover:text-accent"
+              className={`text-sm font-semibold tracking-tight transition-colors duration-200 ${
+                shouldUseDarkText
+                  ? "text-trust hover:text-accent"
+                  : "text-white hover:text-accent/50"
+              }`}
             >
               Logo
             </Link>
@@ -158,9 +176,13 @@ export default function Navbar() {
                     key={it.href}
                     href={it.href}
                     className={`text-sm transition-colors duration-200 ${
-                      isActive
-                        ? "text-accent font-semibold"
-                        : "text-text-secondary hover:text-trust"
+                      shouldUseDarkText
+                        ? isActive
+                          ? "text-accent font-semibold"
+                          : "text-trust hover:text-accent"
+                        : isActive
+                          ? "text-accent font-semibold"
+                          : "text-white/90 hover:text-white"
                     }`}
                   >
                     {it.label}
