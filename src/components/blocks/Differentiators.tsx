@@ -8,10 +8,10 @@ import {
 } from "@/src/components/ui/Card";
 import Section from "@/src/components/layouts/Section";
 import {
-  Hammer,
-  MessageSquareText,
-  Rocket,
-  Route,
+  Compass,
+  ShieldCheck,
+  CalendarClock,
+  TrendingUp,
 } from "lucide-react";
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
@@ -20,61 +20,52 @@ type Item = {
   icon: React.ElementType;
   title: string;
   subtitle: string;
-  imageSrc: string;
-  imageAlt: string;
   details: string[];
 };
 
 const items: Item[] = [
   {
-    icon: MessageSquareText,
-    title: "Working Session First",
+    icon: Compass,
+    title: "Clarity over complexity",
     subtitle:
-      "We start with a hands-on session to align fast and remove uncertainty.",
-    imageSrc: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
-    imageAlt: "Clear roadmap and planning process",
+      "We reduce ambiguity fast so teams can move with confidence.",
     details: [
-      "Clarify goals, constraints, and 'definition of done'",
-      "Identify risks early (tech, scope, timeline)",
-      "Turn the problem into a shared, executable plan",
+      "Tight scope, success metrics, clear \"definition of done\"",
+      "Early risk identification (tech, timeline, dependencies)",
+      "Decisions documented so nothing gets lost",
     ],
   },
   {
-    icon: Route,
-    title: "Strategy + Plan with Milestones",
-    subtitle: "A simple roadmap with clear priorities and acceptance criteria.",
-    imageSrc: "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
-    imageAlt: "Senior engineering team collaboration",
+    icon: ShieldCheck,
+    title: "Senior-level engineering",
+    subtitle:
+      "Production-grade quality with maintainable foundations.",
     details: [
-      "Break scope into milestones and deliverables",
-      "Define acceptance criteria and success metrics",
-      "Set cadence: demos, updates, and feedback loop",
+      "Clean architecture and readable, consistent patterns",
+      "Performance + accessibility treated as defaults",
+      "Reviews and standards that keep velocity sustainable",
     ],
   },
   {
-    icon: Hammer,
-    title: "Senior-Level Build",
+    icon: CalendarClock,
+    title: "Predictable collaboration",
     subtitle:
-      "Production-grade delivery with quality built in — not bolted on.",
-    imageSrc: "https://images.unsplash.com/photo-1552664730-d307ca884978",
-    imageAlt: "Predictable delivery and sprint planning",
+      "You always know what's happening and what's next.",
     details: [
-      "Clean architecture, readable code, consistent patterns",
-      "Performance + accessibility as defaults",
-      "Review discipline and stable delivery workflow",
+      "Weekly demos + written updates",
+      "Async-friendly communication, fewer meetings",
+      "Fast feedback loops, no surprises",
     ],
   },
   {
-    icon: Rocket,
-    title: "Excellent Outcomes",
+    icon: TrendingUp,
+    title: "Outcomes, not activity",
     subtitle:
-      "We ship in increments, measure impact, and improve what matters.",
-    imageSrc: "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
-    imageAlt: "High performance user interface",
+      "We optimize for impact — not busywork.",
     details: [
-      "Visible progress through incremental releases",
-      "Outcomes focused: speed, reliability, UX quality",
-      "Launch-ready mindset: monitoring, ownership, follow-ups",
+      "Incremental releases with visible progress",
+      "Focus on speed, reliability, UX quality",
+      "Pragmatic decisions that compound over time",
     ],
   },
 ];
@@ -88,9 +79,9 @@ export default function Differentiators() {
     <>
       <Section
         id="why"
-        eyebrow=""
-        title="Grade Up. Because..."
-        subtitle="From the first working session to launch — we keep execution clear, predictable, and outcome-driven."
+        eyebrow="WHY GRADE UP"
+        title="Delivery standards you can rely on"
+        subtitle="Calm execution, senior decisions, and predictable momentum — built for startups and digital teams."
         className="pt-10 sm:pt-12 lg:pt-14 py-10 bg-bg"
         subtitleClassName="max-w-full"
       >
