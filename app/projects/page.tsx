@@ -35,7 +35,7 @@ export default function ProjectsPage() {
           <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent-2/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
 
-          <div className="relative mx-auto max-w-7xl px-6 py-20 sm:py-28 lg:py-32">
+          <div className="relative mx-auto max-w-7xl px-6 py-12 sm:py-28 lg:py-32">
             <div className="max-w-4xl">
               {/* Breadcrumb */}
               <nav className="mb-8 flex items-center gap-2 text-sm">
@@ -100,22 +100,28 @@ export default function ProjectsPage() {
               </div>
 
               {/* Stats or highlights */}
-              <div className="mt-12 pt-8 border-t border-border-subtle flex flex-wrap items-center gap-8">
-                <div>
-                  <div className="text-3xl font-bold text-trust mb-1">4+</div>
-                  <div className="text-sm text-slate font-medium">
+              <div className="mt-12 pt-8 border-t border-border-subtle grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+                <div className="text-center sm:text-left">
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-trust mb-1 sm:mb-2">
+                    4+
+                  </div>
+                  <div className="text-xs sm:text-sm text-slate font-medium">
                     Completed Projects
                   </div>
                 </div>
-                <div>
-                  <div className="text-3xl font-bold text-trust mb-1">100%</div>
-                  <div className="text-sm text-slate font-medium">
+                <div className="text-center sm:text-left">
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-trust mb-1 sm:mb-2">
+                    100%
+                  </div>
+                  <div className="text-xs sm:text-sm text-slate font-medium">
                     Client Satisfaction
                   </div>
                 </div>
-                <div>
-                  <div className="text-3xl font-bold text-trust mb-1">5+</div>
-                  <div className="text-sm text-slate font-medium">
+                <div className="text-center sm:text-left">
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-trust mb-1 sm:mb-2">
+                    5+
+                  </div>
+                  <div className="text-xs sm:text-sm text-slate font-medium">
                     Tech Stacks
                   </div>
                 </div>

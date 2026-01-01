@@ -207,7 +207,7 @@ export default function Hero() {
         />
         {/* <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--color-accent-soft)] via-white/40 to-[color:var(--color-accent-2-soft)]" /> */}
 
-        <div className="relative z-20 mx-auto max-w-7xl px-6 pt-32 lg:pt-40 h-full flex flex-col justify-between">
+        <div className="relative z-20 mx-auto max-w-7xl px-6 pt-32 lg:pt-40 h-full flex flex-col justify-between md:justify-end">
           <MotionConfig reducedMotion={shouldReduceMotion ? "always" : "never"}>
             <AnimatePresence mode="wait">
               <motion.div

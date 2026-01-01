@@ -85,8 +85,7 @@ export default function Differentiators() {
         className="pt-10 sm:pt-12 lg:pt-14 py-10 bg-bg"
         subtitleClassName="max-w-full"
       >
-        <div className="grid gap-8 lg:grid-cols-2">
-          {/* Left: Cards List - Vertical */}
+        <div className="grid gap-8 md:grid-cols-2">
           <div className="space-y-4">
             {items.map((it, index) => {
               const Icon = it.icon;
@@ -102,7 +101,6 @@ export default function Differentiators() {
                 >
                   <CardContent className="p-6 flex items-start gap-6">
                     <div className="flex-shrink-0">
-                      {/* Icon container with white background */}
                       <div className="inline-flex h-20 w-20 items-center justify-center rounded-2xl border p-3 bg-accent-soft border-border-subtle group-hover:bg-[color:var(--color-accent-2-soft)]">
                         <Icon className="h-8 w-8 text-accent" />
                       </div>
@@ -120,8 +118,7 @@ export default function Differentiators() {
             })}
           </div>
 
-          {/* Right: Details */}
-          <div className="lg:sticky lg:top-24 lg:h-fit flex flex-col items-center">
+          <div className="hidden md:flex lg:sticky lg:top-24 lg:h-fit flex-col items-center">
             <AnimatePresence mode="wait">
               {activeItem && (
                 <motion.div
