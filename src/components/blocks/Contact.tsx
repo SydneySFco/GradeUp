@@ -163,7 +163,7 @@ export default function Contact() {
                     className="bg-accent text-white rounded-full hover:bg-accent-hover hover:border-accent-hover disabled:opacity-50 disabled:cursor-not-allowed"
                     disabled={status === "loading"}
                   >
-                    {status === "loading" ? "Sending..." : "Book a call"}
+                    {status === "loading" ? "Sending..." : "Send Message"}
                   </Button>
                 </div>
               </form>
