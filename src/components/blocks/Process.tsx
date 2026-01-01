@@ -91,7 +91,7 @@ export default function Process() {
                   <div className="flex items-start justify-between">
                     <Badge variant="neutral" className="bg-secondary text-text-secondary rounded-full">{s.step}</Badge>
 
-                    <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border transition group-hover:border-accent group-hover:bg-accent-soft bg-accent-soft border-border-subtle">
+                    <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border transition-all duration-200 group-hover:border-accent group-hover:bg-accent-soft bg-accent-soft border-border-subtle">
                       <Icon className="h-5 w-5 text-trust" />
                     </div>
                   </div>

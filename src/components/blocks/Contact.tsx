@@ -1,17 +1,12 @@
 "use client";
 
 import Section from "@/src/components/layouts/Section";
-import { Card, CardContent, CardTitle } from "@/src/components/ui/Card";
+import { Card, CardContent } from "@/src/components/ui/Card";
 import { Button } from "@/src/components/ui/Button";
 import { Input } from "@/src/components/ui/Input";
 import { Textarea } from "@/src/components/ui/Textarea";
 import { useMemo, useState } from "react";
-
-const CONTACT_EMAIL = "info@gradeup.solutions"; // TODO: değiştir
-
-function encode(value: string) {
-  return encodeURIComponent(value);
-}
+import { sendContactEmail } from "@/app/actions/contact";
 
 export default function Contact() {
   const budgetOptions = useMemo(
@@ -29,29 +24,53 @@ export default function Contact() {
   const [budget, setBudget] = useState(budgetOptions[0]);
   const [timeline, setTimeline] = useState(timelineOptions[0]);
   const [message, setMessage] = useState("");
-  const [status, setStatus] = useState<"idle" | "ok">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+  const [statusMessage, setStatusMessage] = useState("");
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const subject = `New inquiry — ${name || "Website"}${
-      company ? ` (${company})` : ""
-    }`;
-    const body =
-      `Name: ${name}\n` +
-      `Company: ${company}\n` +
-      `Email: ${email}\n` +
-      `Budget: ${budget}\n` +
-      `Timeline: ${timeline}\n\n` +
-      `Message:\n${message}\n`;
+    setStatus("loading");
+    setStatusMessage("");
 
-    const mailto = `mailto:${CONTACT_EMAIL}?subject=${encode(
-      subject
-    )}&body=${encode(body)}`;
+    try {
+      const result = await sendContactEmail({
+        name,
+        company,
+        email,
+        budget,
+        timeline,
+        message,
+      });
 
-    // Opens user's mail client
-    window.location.href = mailto;
-    setStatus("ok");
+      if (result.success) {
+        setStatus("success");
+        setStatusMessage(result.message);
+        setName("");
+        setCompany("");
+        setEmail("");
+        setBudget(budgetOptions[0]);
+        setTimeline(timelineOptions[0]);
+        setMessage("");
+
+        setTimeout(() => {
+          setStatus("idle");
+          setStatusMessage("");
+        }, 5000);
+      } else {
+        setStatus("error");
+        setStatusMessage(result.message);
+
+        console.error("Contact form error:", result.message);
+      }
+    } catch (error) {
+      console.error("Unexpected error:", error);
+
+      setStatus("error");
+      setStatusMessage("An unexpected error occurred. Please try again later.");
+    }
   };
 
   return (
@@ -116,14 +135,35 @@ export default function Contact() {
                   />
                 </div>
 
+                {status === "success" && (
+                  <div className="rounded-lg bg-success/10 border border-success/20 p-4">
+                    <p className="text-sm text-success font-medium">
+                      {statusMessage}
+                    </p>
+                  </div>
+                )}
+
+                {status === "error" && (
+                  <div className="rounded-lg bg-error/10 border border-error/20 p-4">
+                    <p className="text-sm text-error font-medium">
+                      {statusMessage}
+                    </p>
+                  </div>
+                )}
+
                 <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
                   <p className="text-xs text-slate">
                     By submitting, you agree to be contacted back about this
                     inquiry.
                   </p>
 
-                  <Button type="submit" variant="primary" className="bg-accent text-white rounded-full hover:bg-accent-hover hover:border-accent-hover">
-                    Get a clear solution
+                  <Button
+                    type="submit"
+                    variant="primary"
+                    className="bg-accent text-white rounded-full hover:bg-accent-hover hover:border-accent-hover disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled={status === "loading"}
+                  >
+                    {status === "loading" ? "Sending..." : "Book a call"}
                   </Button>
                 </div>
               </form>

@@ -1,12 +1,24 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import Navbar from "@/src/components/layouts/Navbar";
 import Footer from "@/src/components/layouts/Footer";
 import ProjectsClient from "@/src/components/projects/ProjectsClient";
 
-export const metadata = {
-  title: "Projects — Grade Up Solutions",
+export const metadata: Metadata = {
+  title: "Projects",
   description:
-    "Selected work across product, web, mobile, backend, and automation.",
+    "Selected work across product engineering, web, mobile, backend, DevOps, and pragmatic AI. Proof through outcomes — not buzzwords.",
+  openGraph: {
+    title: "Projects — Grade Up Solutions",
+    description:
+      "Selected work across product engineering, web, mobile, backend, DevOps, and pragmatic AI. Proof through outcomes — not buzzwords.",
+    url: "/projects",
+  },
+  twitter: {
+    title: "Projects — Grade Up Solutions",
+    description:
+      "Selected work across product engineering, web, mobile, backend, DevOps, and pragmatic AI. Proof through outcomes — not buzzwords.",
+  },
 };
 
 export default function ProjectsPage() {

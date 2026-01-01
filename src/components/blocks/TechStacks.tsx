@@ -128,14 +128,13 @@ export default function TechStack() {
         })}
       </div>
 
-      {/* Standards strip */}
       <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {standards.map((s) => {
           const Icon = s.icon;
           return (
             <div
               key={s.title}
-              className="border border-borders-elevated bg-surface-elevated p-6 shadow-card hover:shadow-card-hover transition rounded-2xl"
+              className="border border-borders-elevated bg-surface-elevated p-6 shadow-card hover:shadow-card-hover transition-all duration-200 rounded-2xl"
             >
               <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-honest/20 bg-honest-soft">
                 <Icon className="h-5 w-5 text-accent" />

@@ -55,14 +55,14 @@ export default function FeaturedWork() {
                   <p className="text-xs font-bold tracking-[0.2em] uppercase text-accent mb-2">
                     Problem
                   </p>
-                  <CardDescription className="text-base">{item.problem}</CardDescription>
+                  <CardDescription>{item.problem}</CardDescription>
                 </div>
 
                 <div>
                   <p className="text-xs font-bold tracking-[0.2em] uppercase text-accent mb-2">
                     What we did
                   </p>
-                  <CardDescription className="text-base">{item.whatWeDid}</CardDescription>
+                  <CardDescription>{item.whatWeDid}</CardDescription>
                 </div>
 
                 <div>
@@ -95,7 +95,7 @@ export default function FeaturedWork() {
               <div className="mt-8 pt-4 border-t-2 border-borders-subtle">
                 <a
                   href="/projects"
-                  className="text-sm font-bold text-accent hover:text-accent-hover transition-colors inline-flex items-center gap-2"
+                  className="text-sm font-bold text-accent hover:text-accent-hover transition-colors duration-200 inline-flex items-center gap-2"
                 >
                   View related projects <span>→</span>
                 </a>

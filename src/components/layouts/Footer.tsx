@@ -38,7 +38,7 @@ export default function Footer() {
               <span className="h-4 w-px bg-borders-elevated" />
               <Link
                 href="/projects"
-                className="text-sm font-semibold text-text-secondary hover:text-trust transition-colors"
+                className="text-sm font-semibold text-text-secondary hover:text-trust transition-colors duration-200"
               >
                 View Projects
               </Link>
@@ -66,7 +66,6 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Contact & Social Section */}
           <div className="lg:col-span-3">
             <h4 className="text-sm font-semibold tracking-[0.1em] uppercase text-text-muted mb-6">
               Connect
@@ -86,7 +85,7 @@ export default function Footer() {
                 <div className="flex items-center gap-4">
                   <a
                     href="#"
-                    className="text-sm font-medium text-text-secondary hover:text-accent transition-colors"
+                    className="text-sm font-medium text-text-secondary hover:text-accent transition-colors duration-200"
                     aria-label="LinkedIn"
                   >
                     LinkedIn
@@ -94,7 +93,7 @@ export default function Footer() {
                   <span className="h-4 w-px bg-borders-elevated" />
                   <a
                     href="#"
-                    className="text-sm font-medium text-text-secondary hover:text-accent transition-colors"
+                    className="text-sm font-medium text-text-secondary hover:text-accent transition-colors duration-200"
                     aria-label="GitHub"
                   >
                     GitHub
@@ -111,21 +110,6 @@ export default function Footer() {
             <p className="text-sm text-text-muted">
               © {year} Grade Up Solutions. All rights reserved.
             </p>
-            <div className="flex items-center gap-4 text-sm">
-              <a
-                href="#"
-                className="text-text-muted hover:text-trust transition-colors"
-              >
-                Privacy Policy
-              </a>
-              <span className="h-4 w-px bg-borders-elevated" />
-              <a
-                href="#"
-                className="text-text-muted hover:text-trust transition-colors"
-              >
-                Terms of Service
-              </a>
-            </div>
           </div>
         </div>
       </div>

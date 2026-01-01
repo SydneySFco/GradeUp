@@ -112,9 +112,8 @@ function Services() {
               className="h-full group bg-surface border-border-subtle box-shadow-card"
             >
               <CardContent className="p-8">
-                {/* Icon */}
                 <div className="mb-6">
-                  <div className="inline-flex h-16 w-16 items-center justify-center border-2 group-hover:bg-[color:var(--color-accent-2-soft)] transition-all bg-accent-soft border-border-subtle rounded-xl text-text-secondary">
+                  <div className="inline-flex h-16 w-16 items-center justify-center border-2 group-hover:bg-[color:var(--color-accent-2-soft)] transition-all duration-200 bg-accent-soft border-border-subtle rounded-xl text-text-secondary">
                     <Icon className="h-8 w-8 text-text-secondary" />
                   </div>
                 </div>
@@ -143,7 +142,7 @@ function Services() {
                   {s.bullets.map((b) => (
                     <li
                       key={b}
-                      className="flex items-start gap-3 text-sm text-text-secondary"
+                      className="flex items-start gap-3 text-small text-text-secondary"
                     >
                       <span
                         className="mt-1.5 h-2 w-2 bg-secondary flex-shrink-0"
@@ -161,7 +160,7 @@ function Services() {
 
       <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border border-borders-elevated bg-honest-soft p-6 shadow-card rounded-2xl">
         <div>
-          <p className="text-base font-semibold text-trust">
+          <p className="text-body font-semibold text-trust">
             Not sure where your project fits?
           </p>
           <p className="mt-1 text-sm text-slate">

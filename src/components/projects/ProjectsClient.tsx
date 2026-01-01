@@ -219,12 +219,12 @@ export default function ProjectsClient() {
               Have a project in mind?
             </p>
             <p className="mt-1 text-sm text-slate">
-              Share a quick summary — we'll reply with a clear next step.
+              Share a quick summary — we&apos;ll reply with a clear next step.
             </p>
           </div>
 
           <Button href="/#contact" variant="secondary">
-            Contact
+            Book a call
           </Button>
         </div>
       </div>

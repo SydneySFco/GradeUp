@@ -14,7 +14,7 @@ import {
   Route,
 } from "lucide-react";
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 type Item = {
   icon: React.ElementType;
@@ -80,6 +80,7 @@ const items: Item[] = [
 ];
 
 export default function Differentiators() {
+  const shouldReduceMotion = useReducedMotion();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(0); // Default: ilk kutu
   const activeItem = hoveredIndex !== null ? items[hoveredIndex] : null;
 
@@ -103,8 +104,8 @@ export default function Differentiators() {
                 <Card
                   key={it.title}
                   interactive
-                  className={`group bg-surface border-secondary/30 transition-all ${
-                    isActive ? "border-secondary" : ""
+                  className={`group bg-surface border-border-subtle transition-all duration-200 ${
+                    isActive ? "border-accent/40" : ""
                   }`}
                   onMouseEnter={() => setHoveredIndex(index)}
                 >
@@ -137,7 +138,11 @@ export default function Differentiators() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                  transition={
+                    shouldReduceMotion
+                      ? { duration: 0 }
+                      : { duration: 0.2, ease: [0.4, 0, 0.2, 1] }
+                  }
                   className="w-full h-full flex justify-center items-center"
                 >
                   <div className="p-4 lg:p-8">
