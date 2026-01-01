@@ -126,7 +126,7 @@ export default function ProjectsClient() {
           </div>
 
           {/* Filters */}
-          <div className="flex flex-wrap items-center gap-2">
+          {/* <div className="flex flex-wrap items-center gap-2">
             {ALL.map((c) => {
               const isActive = c === active;
               const count =
@@ -163,7 +163,7 @@ export default function ProjectsClient() {
                 </button>
               );
             })}
-          </div>
+          </div> */}
         </div>
 
         {/* Projects Grid */}
