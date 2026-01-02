@@ -73,10 +73,10 @@ export default function Footer() {
               <div className="flex flex-col items-start justify-between">
                 <p className="text-xs text-text-muted mb-3">Email</p>
                 <a
-                  href="mailto:info@gradeup.solutions"
+                  href="mailto:hi@gradeup.solutions"
                   className="inline-flex items-center gap-2 py-2.5 text-sm ransition-all rounded-full"
                 >
-                  info@gradeup.solutions
+                  hi@gradeup.solutions
                 </a>
               </div>
               <div className="pt-2">

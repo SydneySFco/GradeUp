@@ -7,7 +7,7 @@ if (!process.env.RESEND_API_KEY) {
 }
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const CONTACT_EMAIL = process.env.CONTACT_EMAIL || "info@gradeup.solutions";
+const CONTACT_EMAIL = process.env.CONTACT_EMAIL || "hi@gradeup.solutions";
 const FROM_EMAIL = process.env.FROM_EMAIL || "noreply@gradeup.solutions";
 
 export type ContactFormData = {
