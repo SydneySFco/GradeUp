@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "/",
+    url: "https://gradeup.solutions/",
     siteName: "Grade Up Solutions",
     title: "Grade Up Solutions — Modern Engineering for Startups",
     description:
@@ -41,6 +41,7 @@ export const metadata: Metadata = {
       },
     ],
   },
+  alternates: { canonical: "https://gradeup.solutions/" },
   twitter: {
     card: "summary_large_image",
     title: "Grade Up Solutions — Modern Engineering for Startups",
