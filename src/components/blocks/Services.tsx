@@ -10,6 +10,7 @@ type Package = {
   timeline: string;
   fit: string;
   outcomes: string[];
+  href: string;
   popular?: boolean;
   icon: React.ElementType;
 };
@@ -25,6 +26,7 @@ const packages: Package[] = [
       "Core user journeys shipped with QA",
       "Launch checklist and handover documentation",
     ],
+    href: "/services/mvp-development",
     icon: Rocket,
   },
   {
@@ -37,6 +39,7 @@ const packages: Package[] = [
       "Performance and reliability improvements",
       "Weekly demos and decision transparency",
     ],
+    href: "/services/react-nextjs-development",
     popular: true,
     icon: TrendingUp,
   },
@@ -50,6 +53,7 @@ const packages: Package[] = [
       "High-impact fixes in first 2 weeks",
       "Stability baseline for future roadmap",
     ],
+    href: "/services/devops-cloud-delivery",
     icon: Wrench,
   },
 ];
@@ -105,6 +109,14 @@ function Services() {
                     </li>
                   ))}
                 </ul>
+
+                <Button
+                  href={pkg.href}
+                  variant="ghost"
+                  className="mt-6 w-full rounded-full border border-border-subtle text-trust hover:bg-bg"
+                >
+                  View package details
+                </Button>
               </CardContent>
             </Card>
           );
