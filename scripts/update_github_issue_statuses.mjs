@@ -28,8 +28,19 @@ async function gh(path, method = 'GET', token, body) {
 async function ensureLabel(owner, repo, token, name, color = '0E8A16', description = '') {
   try {
     await gh(`/repos/${owner}/${repo}/labels/${encodeURIComponent(name)}`, 'GET', token);
+    return;
   } catch {
+    // fall through and try create
+  }
+
+  try {
     await gh(`/repos/${owner}/${repo}/labels`, 'POST', token, { name, color, description });
+  } catch (err) {
+    const msg = String(err?.message || '');
+    if (msg.includes('already_exists') || msg.includes('Validation Failed')) {
+      return;
+    }
+    throw err;
   }
 }
 
