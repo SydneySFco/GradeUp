@@ -7,6 +7,7 @@
 - Contact form submit error rate
 
 ## Events Implemented
+- `hero_headline_variant_view`
 - `hero_primary_cta_click`
 - `hero_secondary_cta_click`
 - `contact_form_submit_success`

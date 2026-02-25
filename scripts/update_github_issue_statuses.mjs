@@ -145,6 +145,16 @@ const updates = {
     statusText: 'In Review',
     note: 'Variant assignment + tracking implemented in commit f75e568; awaiting live data',
   },
+  'Run A/B test for hero headline variant A vs B': {
+    statusLabel: 'status:In-Review',
+    statusText: 'In Review',
+    note: 'Headline variant assignment + event tracking implemented in commit e2f18af; awaiting live data',
+  },
+  'Standardize design system tokens (spacing, radius, type scale)': {
+    statusLabel: 'status:Done',
+    statusText: 'Done',
+    note: 'Token set + usage docs added in commit e2f18af',
+  },
 };
 
 async function main() {

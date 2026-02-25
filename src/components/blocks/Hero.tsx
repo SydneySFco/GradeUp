@@ -73,9 +73,25 @@ export default function Hero() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [ctaVariant, setCtaVariant] = useState<"A" | "B">("A");
+  const [headlineVariant, setHeadlineVariant] = useState<"A" | "B">("A");
 
   const total = slides.length;
   const active = slides[index];
+
+  const displayTitle =
+    index === 0 && headlineVariant === "B"
+      ? "Build your startup roadmap"
+      : active.title;
+
+  const displayTitleSecondLine =
+    index === 0 && headlineVariant === "B"
+      ? "with senior delivery from week one."
+      : active.titleSecondLine;
+
+  const displaySubtitle =
+    index === 0 && headlineVariant === "B"
+      ? "We turn founder goals into weekly milestones, clear scope, and production-ready releases your team can trust."
+      : active.subtitle;
 
   const intervalRef = useRef<number | null>(null);
 
@@ -111,15 +127,25 @@ export default function Hero() {
   }, [slides]);
 
   useEffect(() => {
-    const saved = window.localStorage.getItem("hero_cta_variant");
-    if (saved === "A" || saved === "B") {
-      setCtaVariant(saved);
-      return;
+    const savedCta = window.localStorage.getItem("hero_cta_variant");
+    if (savedCta === "A" || savedCta === "B") {
+      setCtaVariant(savedCta);
+    } else {
+      const assignedCta: "A" | "B" = Math.random() < 0.5 ? "A" : "B";
+      window.localStorage.setItem("hero_cta_variant", assignedCta);
+      setCtaVariant(assignedCta);
     }
 
-    const assigned: "A" | "B" = Math.random() < 0.5 ? "A" : "B";
-    window.localStorage.setItem("hero_cta_variant", assigned);
-    setCtaVariant(assigned);
+    const savedHeadline = window.localStorage.getItem("hero_headline_variant");
+    if (savedHeadline === "A" || savedHeadline === "B") {
+      setHeadlineVariant(savedHeadline);
+      trackEvent("hero_headline_variant_view", { variant: savedHeadline });
+    } else {
+      const assignedHeadline: "A" | "B" = Math.random() < 0.5 ? "A" : "B";
+      window.localStorage.setItem("hero_headline_variant", assignedHeadline);
+      setHeadlineVariant(assignedHeadline);
+      trackEvent("hero_headline_variant_view", { variant: assignedHeadline });
+    }
   }, []);
 
   useEffect(() => {
@@ -237,7 +263,7 @@ export default function Hero() {
                 className="max-w-4xl"
               >
                 <h1 className="text-5xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-balance leading-[1.1]">
-                  <span className="text-white block">{active.title}</span>
+                  <span className="text-white block">{displayTitle}</span>
                   <span
                     className="block bg-clip-text text-transparent"
                     style={{
@@ -245,7 +271,7 @@ export default function Hero() {
                         "linear-gradient(to right, #0066ff, #0080ff, #00a3ff, #0066ff)",
                     }}
                   >
-                    {active.titleSecondLine}
+                    {displayTitleSecondLine}
                   </span>
                 </h1>
 
@@ -253,7 +279,7 @@ export default function Hero() {
                   className="mt-8 max-w-3xl text-xl sm:text-2xl leading-relaxed font-light"
                   style={{ color: "#d4d4d8" }}
                 >
-                  {active.subtitle}
+                  {displaySubtitle}
                 </p>
 
                 <div className="mt-12 flex flex-wrap items-center gap-4">
@@ -265,6 +291,7 @@ export default function Hero() {
                     onClick={() =>
                       trackEvent("hero_primary_cta_click", {
                         variant: ctaVariant,
+                        headline_variant: headlineVariant,
                         location: "hero",
                       })
                     }
@@ -281,6 +308,7 @@ export default function Hero() {
                     onClick={() =>
                       trackEvent("hero_secondary_cta_click", {
                         variant: ctaVariant,
+                        headline_variant: headlineVariant,
                         location: "hero",
                       })
                     }
