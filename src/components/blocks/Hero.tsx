@@ -9,6 +9,7 @@ import {
   useReducedMotion,
 } from "framer-motion";
 import { Button } from "@/src/components/ui/Button";
+import { trackEvent } from "@/src/lib/analytics";
 
 const optimizeUnsplashUrl = (url: string): string => {
   try {
@@ -71,6 +72,7 @@ export default function Hero() {
   const shouldReduceMotion = useReducedMotion();
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [ctaVariant, setCtaVariant] = useState<"A" | "B">("A");
 
   const total = slides.length;
   const active = slides[index];
@@ -107,6 +109,18 @@ export default function Hero() {
       });
     };
   }, [slides]);
+
+  useEffect(() => {
+    const saved = window.localStorage.getItem("hero_cta_variant");
+    if (saved === "A" || saved === "B") {
+      setCtaVariant(saved);
+      return;
+    }
+
+    const assigned: "A" | "B" = Math.random() < 0.5 ? "A" : "B";
+    window.localStorage.setItem("hero_cta_variant", assigned);
+    setCtaVariant(assigned);
+  }, []);
 
   useEffect(() => {
     if (shouldReduceMotion) return; // reduced-motion: otomatik akmasın
@@ -164,7 +178,7 @@ export default function Hero() {
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={() => setPaused(false)}
     >
-      <div className="relative h-[86vh] min-h-[560px] w-full">
+      <div className="relative h-[82vh] min-h-[500px] sm:min-h-[560px] w-full">
         <div className="absolute inset-0 z-0">
           {slides.map((slide, i) => {
             const isActive = i === index;
@@ -248,14 +262,28 @@ export default function Hero() {
                     variant="primary"
                     size="lg"
                     className="bg-accent text-white rounded-full hover:bg-accent-hover hover:border-accent-hover"
+                    onClick={() =>
+                      trackEvent("hero_primary_cta_click", {
+                        variant: ctaVariant,
+                        location: "hero",
+                      })
+                    }
                   >
-                    Book a 20-min call
+                    {ctaVariant === "A"
+                      ? "Book a 20-min call"
+                      : "Book your roadmap call"}
                   </Button>
                   <Button
                     href="#process"
                     variant="ghost"
                     size="lg"
                     className="rounded-full border-2 border-white/40 text-white hover:bg-white/10 hover:border-white/60"
+                    onClick={() =>
+                      trackEvent("hero_secondary_cta_click", {
+                        variant: ctaVariant,
+                        location: "hero",
+                      })
+                    }
                   >
                     Get a sample roadmap
                   </Button>
@@ -279,7 +307,7 @@ export default function Hero() {
             </AnimatePresence>
           </MotionConfig>
 
-          <div className="mt-16 mb-16 flex items-center justify-between">
+          <div className="mt-10 mb-10 hidden sm:flex items-center justify-between">
             <div
               className="flex items-center gap-3"
               aria-label="Slide indicators"

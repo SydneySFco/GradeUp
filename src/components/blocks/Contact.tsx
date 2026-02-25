@@ -7,6 +7,7 @@ import { Input } from "@/src/components/ui/Input";
 import { Textarea } from "@/src/components/ui/Textarea";
 import { useState } from "react";
 import { sendContactEmail } from "@/app/actions/contact";
+import { trackEvent } from "@/src/lib/analytics";
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -34,6 +35,7 @@ export default function Contact() {
       if (result.success) {
         setStatus("success");
         setStatusMessage(result.message);
+        trackEvent("contact_form_submit_success", { location: "contact_section" });
         setName("");
         setEmail("");
         setTimeline("");
@@ -46,10 +48,18 @@ export default function Contact() {
       } else {
         setStatus("error");
         setStatusMessage(result.message);
+        trackEvent("contact_form_submit_error", {
+          location: "contact_section",
+          reason: "validation_or_service",
+        });
       }
     } catch {
       setStatus("error");
       setStatusMessage("An unexpected error occurred. Please try again later.");
+      trackEvent("contact_form_submit_error", {
+        location: "contact_section",
+        reason: "unexpected",
+      });
     }
   };
 
