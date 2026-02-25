@@ -1,95 +1,56 @@
 import Section from "@/src/components/layouts/Section";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardTitle,
-} from "@/src/components/ui/Card";
+import { Card, CardContent, CardDescription, CardTitle } from "@/src/components/ui/Card";
 import { Badge } from "@/src/components/ui/Badge";
 import { Button } from "@/src/components/ui/Button";
-import {
-  Layers,
-  MonitorSmartphone,
-  Smartphone,
-  Database,
-  Cloud,
-  Sparkles,
-} from "lucide-react";
+import { Rocket, TrendingUp, Wrench } from "lucide-react";
 
-type Service = {
+type Package = {
   title: string;
   subtitle: string;
-  bullets: string[];
-  tags: string[];
+  timeline: string;
+  fit: string;
+  outcomes: string[];
+  popular?: boolean;
   icon: React.ElementType;
 };
 
-const services: Service[] = [
+const packages: Package[] = [
   {
-    title: "Product Engineering",
-    subtitle: "From MVP to scale — delivery that stays maintainable.",
-    bullets: [
-      "MVP planning & execution",
-      "Architecture that won’t collapse later",
-      "Weekly demos & clear milestones",
+    title: "MVP Sprint",
+    subtitle: "Launch a production-ready MVP with clear scope and weekly demos.",
+    timeline: "6–8 weeks",
+    fit: "Best for founders validating product-market fit.",
+    outcomes: [
+      "Roadmap + architecture decisions in week 1",
+      "Core user journeys shipped with QA",
+      "Launch checklist and handover documentation",
     ],
-    tags: ["MVP", "Scale"],
-    icon: Layers,
+    icon: Rocket,
   },
   {
-    title: "Web Applications",
-    subtitle: "Fast, accessible, premium-feeling experiences.",
-    bullets: [
-      "Next.js/React development",
-      "Performance & UX improvements",
-      "Design system-friendly UI",
+    title: "Scale Pod",
+    subtitle: "Senior product pod that extends your team and keeps releases predictable.",
+    timeline: "Monthly",
+    fit: "Best for teams with traction and aggressive roadmap targets.",
+    outcomes: [
+      "Feature velocity with lower delivery risk",
+      "Performance and reliability improvements",
+      "Weekly demos and decision transparency",
     ],
-    tags: ["Web", "UX"],
-    icon: MonitorSmartphone,
+    popular: true,
+    icon: TrendingUp,
   },
   {
-    title: "Mobile Apps",
-    subtitle: "React Native builds that feel native and ship clean.",
-    bullets: [
-      "Core journeys & onboarding",
-      "Reliable release process",
-      "Stability + performance focus",
+    title: "Rescue & Stabilize",
+    subtitle: "Fix unstable delivery, untangle technical debt, and regain momentum fast.",
+    timeline: "4–6 weeks",
+    fit: "Best for projects missing deadlines or struggling with quality.",
+    outcomes: [
+      "Technical bottleneck audit + remediation plan",
+      "High-impact fixes in first 2 weeks",
+      "Stability baseline for future roadmap",
     ],
-    tags: ["iOS", "Android"],
-    icon: Smartphone,
-  },
-  {
-    title: "Backend & APIs",
-    subtitle: "Clean services and integrations that teams can trust.",
-    bullets: [
-      "API design (REST/GraphQL)",
-      "Auth & role-based access",
-      "Data modeling & integrations",
-    ],
-    tags: ["APIs", "Auth"],
-    icon: Database,
-  },
-  {
-    title: "Cloud & DevOps",
-    subtitle: "Ship with confidence — CI/CD, monitoring, and sane infra.",
-    bullets: [
-      "CI/CD pipelines",
-      "Observability & alerting",
-      "Docker & deployment setup",
-    ],
-    tags: ["CI/CD", "Ops"],
-    icon: Cloud,
-  },
-  {
-    title: "AI & Automation",
-    subtitle: "Pragmatic AI features that reduce manual work.",
-    bullets: [
-      "Workflow automation",
-      "AI-assisted internal tools",
-      "Integrations and routing",
-    ],
-    tags: ["AI", "Automation"],
-    icon: Sparkles,
+    icon: Wrench,
   },
 ];
 
@@ -97,58 +58,50 @@ function Services() {
   return (
     <Section
       id="services"
-      eyebrow="Services"
-      title="What we help you deliver"
-      subtitle="Outcome-focused engineering across product, web, mobile, backend, and delivery infrastructure."
+      eyebrow="Engagement models"
+      title="Choose the delivery model that fits your stage"
+      subtitle="Productized packages to make scope, timeline, and outcomes obvious before work starts."
       className="bg-bg py-10"
     >
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {services.map((s) => {
-          const Icon = s.icon;
+      <div className="grid gap-6 lg:grid-cols-3">
+        {packages.map((pkg) => {
+          const Icon = pkg.icon;
           return (
             <Card
-              key={s.title}
+              key={pkg.title}
               interactive
-              className="h-full group bg-surface border-border-subtle box-shadow-card"
+              className={`h-full border-border-subtle bg-surface box-shadow-card ${
+                pkg.popular ? "ring-2 ring-accent/40" : ""
+              }`}
             >
-              <CardContent className="p-8">
-                <div className="mb-6">
-                  <div className="inline-flex h-16 w-16 items-center justify-center border-2 group-hover:bg-[color:var(--color-accent-2-soft)] transition-all duration-200 bg-accent-soft border-border-subtle rounded-xl text-text-secondary">
-                    <Icon className="h-8 w-8 text-text-secondary" />
+              <CardContent className="p-8 flex h-full flex-col">
+                <div className="mb-5 flex items-center justify-between">
+                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-xl border border-border-subtle bg-accent-soft">
+                    <Icon className="h-7 w-7 text-accent" />
                   </div>
-                </div>
-
-                {/* Tags */}
-                <div className="mb-4 flex flex-wrap gap-2">
-                  {s.tags.map((t, idx) => (
-                    <Badge
-                      key={t}
-                      variant="accent"
-                      className={
-                        "bg-secondary text-text-secondary rounded-full"
-                      }
-                    >
-                      {t}
+                  {pkg.popular ? (
+                    <Badge variant="accent" className="rounded-full bg-accent text-white">
+                      Most Popular
                     </Badge>
-                  ))}
+                  ) : null}
                 </div>
 
-                <CardTitle className="mb-3 text-xl">{s.title}</CardTitle>
-                <CardDescription className="text-base mb-6">
-                  {s.subtitle}
-                </CardDescription>
+                <CardTitle className="text-2xl mb-2">{pkg.title}</CardTitle>
+                <CardDescription className="mb-4">{pkg.subtitle}</CardDescription>
 
-                <ul className="space-y-3">
-                  {s.bullets.map((b) => (
-                    <li
-                      key={b}
-                      className="flex items-start gap-3 text-small text-text-secondary"
-                    >
-                      <span
-                        className="mt-1.5 h-2 w-2 bg-secondary flex-shrink-0"
-                        aria-hidden="true"
-                      />
-                      <span className="leading-relaxed">{b}</span>
+                <div className="mb-5 flex flex-wrap gap-2">
+                  <Badge variant="neutral" className="rounded-full bg-secondary text-text-secondary">
+                    Timeline: {pkg.timeline}
+                  </Badge>
+                </div>
+
+                <p className="text-sm text-text-secondary mb-5">{pkg.fit}</p>
+
+                <ul className="space-y-3 flex-grow">
+                  {pkg.outcomes.map((point) => (
+                    <li key={point} className="flex items-start gap-3 text-sm text-text-secondary">
+                      <span className="mt-1.5 h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
+                      <span>{point}</span>
                     </li>
                   ))}
                 </ul>
@@ -158,27 +111,17 @@ function Services() {
         })}
       </div>
 
-      <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border border-borders-elevated bg-honest-soft p-6 shadow-card rounded-2xl">
+      <div className="mt-10 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-borders-elevated bg-honest-soft p-6 shadow-card">
         <div>
-          <p className="text-body font-semibold text-trust">
-            Not sure where your project fits?
-          </p>
-          <p className="mt-1 text-sm text-slate">
-            Tell us what you&apos;re building — we&apos;ll recommend a clear
-            approach.
-          </p>
+          <p className="text-body font-semibold text-trust">Not sure which package fits?</p>
+          <p className="mt-1 text-sm text-slate">Share your stage + constraints. We’ll recommend the fastest low-risk path.</p>
         </div>
-        <div className="flex justify-end">
-          <Button
-            href="#contact"
-            variant="secondary"
-            className="bg-accent text-white rounded-full hover:bg-accent-hover hover:border-accent-hover"
-          >
-            Book a call
-          </Button>
-        </div>
+        <Button href="#contact" variant="secondary" className="bg-accent text-white rounded-full hover:bg-accent-hover hover:border-accent-hover">
+          Book a call
+        </Button>
       </div>
     </Section>
   );
 }
+
 export default Services;
