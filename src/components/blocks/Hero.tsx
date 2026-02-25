@@ -38,11 +38,11 @@ export default function Hero() {
         imageSrc: optimizeUnsplashUrl(
           "https://images.unsplash.com/photo-1517048676732-d65bc937f952"
         ),
-        imageAlt: "Team collaboration and successful product work",
-        title: "Ship faster. ",
-        titleSecondLine: "Stay predictable.",
+        imageAlt: "Senior product team planning roadmap with founder",
+        title: "Senior-led product engineering",
+        titleSecondLine: "for startup founders.",
         subtitle:
-          "We turn ambitious ideas into production-ready products — with clear scope, tight feedback loops, and clean execution.",
+          "From MVP to scale, we ship production-ready web and mobile products in clear weekly milestones — without delivery chaos.",
       },
       {
         imageSrc: optimizeUnsplashUrl(
@@ -249,8 +249,31 @@ export default function Hero() {
                     size="lg"
                     className="bg-accent text-white rounded-full hover:bg-accent-hover hover:border-accent-hover"
                   >
-                    Book a call
+                    Book a 20-min call
                   </Button>
+                  <Button
+                    href="#process"
+                    variant="ghost"
+                    size="lg"
+                    className="rounded-full border-2 border-white/40 text-white hover:bg-white/10 hover:border-white/60"
+                  >
+                    Get a sample roadmap
+                  </Button>
+                </div>
+
+                <div className="mt-8 flex flex-wrap gap-2 text-xs sm:text-sm">
+                  {[
+                    "Founder-friendly planning",
+                    "Weekly demos + written updates",
+                    "Senior-only engineering pod",
+                  ].map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-white/30 bg-white/5 px-3 py-1.5 text-white/90"
+                    >
+                      {item}
+                    </span>
+                  ))}
                 </div>
               </motion.div>
             </AnimatePresence>
