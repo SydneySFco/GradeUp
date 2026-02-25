@@ -95,6 +95,11 @@ const updates = {
     statusText: 'Done',
     note: 'Implemented in commit 82acf95',
   },
+  'Improve contact form conversion (short form + response SLA)': {
+    statusLabel: 'status:Done',
+    statusText: 'Done',
+    note: 'Implemented in commit 82acf95',
+  },
   'Create 30-day execution board and sprint cadence': {
     statusLabel: 'status:Done',
     statusText: 'Done',
