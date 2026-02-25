@@ -100,6 +100,51 @@ const updates = {
     statusText: 'Done',
     note: 'Implemented in commit 82acf95',
   },
+  'Create dedicated landing page for MVP development': {
+    statusLabel: 'status:Done',
+    statusText: 'Done',
+    note: 'Implemented in commit 554fa6a',
+  },
+  'Create dedicated landing page for React/Next.js development': {
+    statusLabel: 'status:Done',
+    statusText: 'Done',
+    note: 'Implemented in commit 554fa6a',
+  },
+  'Create dedicated landing page for DevOps/Cloud delivery': {
+    statusLabel: 'status:Done',
+    statusText: 'Done',
+    note: 'Implemented in commit 554fa6a',
+  },
+  'Implement structured data (Organization, Service, FAQ)': {
+    statusLabel: 'status:Done',
+    statusText: 'Done',
+    note: 'Implemented in commit 561aed0',
+  },
+  'Improve internal linking between homepage, services, projects': {
+    statusLabel: 'status:Done',
+    statusText: 'Done',
+    note: 'Implemented in commit 554fa6a',
+  },
+  'Add testimonial block with founder-focused quotes': {
+    statusLabel: 'status:Done',
+    statusText: 'Done',
+    note: 'Implemented in commit 561aed0',
+  },
+  'Optimize mobile hero and CTA visibility': {
+    statusLabel: 'status:Done',
+    statusText: 'Done',
+    note: 'Implemented in commit f75e568',
+  },
+  'Set up analytics baseline dashboard (CTR, CVR, form completion)': {
+    statusLabel: 'status:Done',
+    statusText: 'Done',
+    note: 'Implemented in commit f75e568 (event baseline + doc)',
+  },
+  'Run A/B test for primary CTA copy': {
+    statusLabel: 'status:In-Review',
+    statusText: 'In Review',
+    note: 'Variant assignment + tracking implemented in commit f75e568; awaiting live data',
+  },
 };
 
 async function main() {
