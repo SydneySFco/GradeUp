@@ -23,3 +23,8 @@
 2. Track contact success/error trend
 3. Check mobile vs desktop CTA behavior
 4. Feed findings into copy and UI iteration
+
+## Trust Strip Proof Notes (Action-2)
+- Trust strip logos under `public/trust/logos/*` are neutral placeholder brands (non-licensed real trademarks).
+- Displayed trust metrics are based on aggregated internal delivery records from the rolling last 12 months.
+- Public UI copy intentionally states source context to keep claims readable and auditable.

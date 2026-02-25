@@ -1,0 +1,5 @@
+<svg width="160" height="48" viewBox="0 0 160 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="160" height="48" rx="10" fill="transparent"/>
+  <path d="M12 24C12 17.4 17.4 12 24 12H30V18H24C20.7 18 18 20.7 18 24C18 27.3 20.7 30 24 30H30V36H24C17.4 36 12 30.6 12 24Z" fill="#0F172A"/>
+  <text x="48" y="30" fill="#0F172A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="0.75">CLEAROPS</text>
+</svg>

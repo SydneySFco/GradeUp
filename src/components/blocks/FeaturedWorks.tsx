@@ -1,7 +1,10 @@
+"use client";
+
 import Section from "@/src/components/layouts/Section";
 import { Card, CardContent, CardDescription, CardTitle } from "@/src/components/ui/Card";
 import { Badge } from "@/src/components/ui/Badge";
 import { Button } from "@/src/components/ui/Button";
+import { trackEvent } from "@/src/lib/analytics";
 
 type WorkItem = {
   title: string;
@@ -117,12 +120,24 @@ export default function FeaturedWork() {
           <p className="text-2xl font-bold text-trust mb-3">Need a roadmap before committing?</p>
           <p className="text-lg text-text-secondary">We can review your constraints and send a scoped delivery plan after a short call.</p>
         </div>
-        <div className="flex justify-end gap-3 flex-wrap">
-          <Button href="/projects" variant="ghost" size="lg" className="rounded-full border border-border-subtle text-trust">
-            View all projects
+        <div className="flex w-full flex-col justify-end gap-3 sm:w-auto sm:flex-row">
+          <Button
+            href="#contact"
+            variant="primary"
+            size="lg"
+            className="w-full rounded-full bg-accent text-white hover:bg-accent-hover hover:border-accent-hover sm:w-auto"
+            onClick={() => trackEvent("featured_work_strategy_call_cta_click", { location: "featured_work" })}
+          >
+            Book a Strategy Call
           </Button>
-          <Button href="#contact" variant="primary" size="lg" className="bg-accent text-white rounded-full hover:bg-accent-hover hover:border-accent-hover">
-            Book a call
+          <Button
+            href="#process"
+            variant="ghost"
+            size="lg"
+            className="w-full rounded-full border border-border-subtle text-trust sm:w-auto"
+            onClick={() => trackEvent("featured_work_sample_roadmap_cta_click", { location: "featured_work" })}
+          >
+            Get Sample Roadmap
           </Button>
         </div>
       </div>

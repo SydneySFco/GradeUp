@@ -1,8 +1,11 @@
+"use client";
+
 import Section from "@/src/components/layouts/Section";
 import { Card, CardContent, CardDescription, CardTitle } from "@/src/components/ui/Card";
 import { Badge } from "@/src/components/ui/Badge";
 import { Button } from "@/src/components/ui/Button";
 import { Rocket, TrendingUp, Wrench } from "lucide-react";
+import { trackEvent } from "@/src/lib/analytics";
 
 type Package = {
   title: string;
@@ -128,9 +131,25 @@ function Services() {
           <p className="text-body font-semibold text-trust">Not sure which package fits?</p>
           <p className="mt-1 text-sm text-slate">Share your stage + constraints. We’ll recommend the fastest low-risk path.</p>
         </div>
-        <Button href="#contact" variant="secondary" className="bg-accent text-white rounded-full hover:bg-accent-hover hover:border-accent-hover">
-          Book a call
-        </Button>
+
+        <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+          <Button
+            href="#contact"
+            variant="secondary"
+            className="w-full rounded-full bg-accent text-white hover:bg-accent-hover hover:border-accent-hover sm:w-auto"
+            onClick={() => trackEvent("services_strategy_call_cta_click", { location: "services" })}
+          >
+            Book a Strategy Call
+          </Button>
+          <Button
+            href="#process"
+            variant="ghost"
+            className="w-full rounded-full border border-border-subtle text-trust hover:bg-bg sm:w-auto"
+            onClick={() => trackEvent("services_sample_roadmap_cta_click", { location: "services" })}
+          >
+            Get Sample Roadmap
+          </Button>
+        </div>
       </div>
     </Section>
   );

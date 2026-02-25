@@ -1,0 +1,8 @@
+<svg width="160" height="48" viewBox="0 0 160 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="160" height="48" rx="10" fill="transparent"/>
+  <rect x="12" y="14" width="8" height="8" rx="1.5" fill="#0F172A"/>
+  <rect x="24" y="14" width="8" height="8" rx="1.5" fill="#0F172A" fill-opacity="0.75"/>
+  <rect x="12" y="26" width="8" height="8" rx="1.5" fill="#0F172A" fill-opacity="0.75"/>
+  <rect x="24" y="26" width="8" height="8" rx="1.5" fill="#0F172A"/>
+  <text x="48" y="30" fill="#0F172A" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="0.6">VECTORGRID</text>
+</svg>
