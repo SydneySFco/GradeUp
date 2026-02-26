@@ -86,9 +86,9 @@ const updates = {
     note: 'Implemented in commit 50c0e66',
   },
   'Design and implement homepage section hierarchy v2': {
-    statusLabel: 'status:In-Review',
-    statusText: 'In Review',
-    note: 'Implemented across commits eda4d78 + 50c0e66 + 82acf95; pending final QA',
+    statusLabel: 'status:Done',
+    statusText: 'Done',
+    note: 'Final QA/sign-off complete: conversion hierarchy and responsive CTA flow validated; Hero lint-safe variant init added in closing pass.',
   },
   'Improve contact form conversion (short form + SLA)': {
     statusLabel: 'status:Done',

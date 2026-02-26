@@ -72,8 +72,26 @@ export default function Hero() {
   const shouldReduceMotion = useReducedMotion();
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
-  const [ctaVariant, setCtaVariant] = useState<"A" | "B">("A");
-  const [headlineVariant, setHeadlineVariant] = useState<"A" | "B">("A");
+  const [ctaVariant] = useState<"A" | "B">(() => {
+    if (typeof window === "undefined") return "A";
+
+    const savedCta = window.localStorage.getItem("hero_cta_variant");
+    if (savedCta === "A" || savedCta === "B") return savedCta;
+
+    const assignedCta: "A" | "B" = Math.random() < 0.5 ? "A" : "B";
+    window.localStorage.setItem("hero_cta_variant", assignedCta);
+    return assignedCta;
+  });
+  const [headlineVariant] = useState<"A" | "B">(() => {
+    if (typeof window === "undefined") return "A";
+
+    const savedHeadline = window.localStorage.getItem("hero_headline_variant");
+    if (savedHeadline === "A" || savedHeadline === "B") return savedHeadline;
+
+    const assignedHeadline: "A" | "B" = Math.random() < 0.5 ? "A" : "B";
+    window.localStorage.setItem("hero_headline_variant", assignedHeadline);
+    return assignedHeadline;
+  });
 
   const total = slides.length;
   const active = slides[index];
@@ -127,26 +145,8 @@ export default function Hero() {
   }, [slides]);
 
   useEffect(() => {
-    const savedCta = window.localStorage.getItem("hero_cta_variant");
-    if (savedCta === "A" || savedCta === "B") {
-      setCtaVariant(savedCta);
-    } else {
-      const assignedCta: "A" | "B" = Math.random() < 0.5 ? "A" : "B";
-      window.localStorage.setItem("hero_cta_variant", assignedCta);
-      setCtaVariant(assignedCta);
-    }
-
-    const savedHeadline = window.localStorage.getItem("hero_headline_variant");
-    if (savedHeadline === "A" || savedHeadline === "B") {
-      setHeadlineVariant(savedHeadline);
-      trackEvent("hero_headline_variant_view", { variant: savedHeadline });
-    } else {
-      const assignedHeadline: "A" | "B" = Math.random() < 0.5 ? "A" : "B";
-      window.localStorage.setItem("hero_headline_variant", assignedHeadline);
-      setHeadlineVariant(assignedHeadline);
-      trackEvent("hero_headline_variant_view", { variant: assignedHeadline });
-    }
-  }, []);
+    trackEvent("hero_headline_variant_view", { variant: headlineVariant });
+  }, [headlineVariant]);
 
   useEffect(() => {
     if (shouldReduceMotion) return; // reduced-motion: otomatik akmasın
