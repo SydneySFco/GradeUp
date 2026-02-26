@@ -146,14 +146,14 @@ const updates = {
     note: 'Implemented in commit f75e568 (event baseline + doc)',
   },
   'Run A/B test for primary CTA copy': {
-    statusLabel: 'status:In-Review',
-    statusText: 'In Review',
-    note: 'Variant assignment + tracking implemented in commit f75e568; awaiting live data',
+    statusLabel: 'status:Blocked',
+    statusText: 'Blocked',
+    note: 'Variant assignment + tracking implemented (src/components/blocks/Hero.tsx, event: hero_primary_cta_click); awaiting sufficient live traffic sample for statistical decision.',
   },
   'Run A/B test for hero headline variant A vs B': {
-    statusLabel: 'status:In-Review',
-    statusText: 'In Review',
-    note: 'Headline variant assignment + event tracking implemented in commit de1a767; awaiting live data',
+    statusLabel: 'status:Blocked',
+    statusText: 'Blocked',
+    note: 'Headline variant assignment + view/click tracking implemented (src/components/blocks/Hero.tsx, event: hero_headline_variant_view); awaiting sufficient live traffic sample for statistical decision.',
   },
   'Standardize design system tokens (spacing, radius, type scale)': {
     statusLabel: 'status:Done',
@@ -172,6 +172,7 @@ async function main() {
 
   await ensureLabel(owner, repo, token, 'status:Done', '0E8A16', 'Completed');
   await ensureLabel(owner, repo, token, 'status:In-Review', '5319E7', 'Awaiting review');
+  await ensureLabel(owner, repo, token, 'status:Blocked', 'B60205', 'Blocked by dependency or external decision');
 
   const issues = await gh(`/repos/${owner}/${repo}/issues?state=open&per_page=100`, 'GET', token);
 

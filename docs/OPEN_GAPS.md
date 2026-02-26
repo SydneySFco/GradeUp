@@ -1,6 +1,6 @@
 # GradeUp – Open Gaps
 
-> Son güncelleme (UTC): 2026-02-26 09:04
+> Son güncelleme (UTC): 2026-02-26 09:07
 > Referans: `docs/DELIVERY_CONTROL_PANEL.md`, `scripts/update_github_issue_statuses.mjs`
 
 Bu doküman kalan işleri issue-bazlı ve kanıt/evidence odaklı takip eder.
@@ -15,10 +15,10 @@ Bu doküman kalan işleri issue-bazlı ve kanıt/evidence odaklı takip eder.
 
 | Issue / İş | Durum | Kanıt (Evidence) | Eksik / Sonraki Adım |
 |---|---|---|---|
-| Run A/B test for primary CTA copy | Open (In-Review’dan kapanış bekliyor) | `scripts/update_github_issue_statuses.mjs` içinde bu issue için `status:In-Review` + not: “awaiting live data” | Canlı trafikten yeterli örneklem topla, CTA CTR farkı için kapanış kararı ver (Done veya devam) |
-| Run A/B test for hero headline variant A vs B | Open (In-Review’dan kapanış bekliyor) | `scripts/update_github_issue_statuses.mjs` içinde `status:In-Review` + not: “awaiting live data” | Varyant performansını ölç, kazanan varyantı sabitle, issue’yu Done’a çek |
-| Analytics baseline event doğrulaması | In-Progress | `docs/ANALYTICS_BASELINE.md` event listesi mevcut (`hero_*`, `contact_form_*`) | Eventlerin canlıda aktığına dair kanıtı (ölçüm ekranı/log) ekle |
-| Issue status panel senkronu | Open | Senkron komutu tanımlı: `scripts/update_github_issue_statuses.mjs` | Token ile komutu çalıştır, issue body + label güncellemelerinin güncel çıktısını kaydet |
+| Run A/B test for primary CTA copy (#19) | Blocked | Kod + tracking hazır: `src/components/blocks/Hero.tsx` (`hero_cta_variant`, `hero_primary_cta_click`), taşıma: `src/lib/analytics.ts`, issue mapping: `scripts/update_github_issue_statuses.mjs` → `status:Blocked` | Canlı trafikte minimum örneklem eşiği dolunca CTR kararını ver, kazanan copy’yi sabitle ve Done’a çek |
+| Run A/B test for hero headline variant A vs B (#18) | Blocked | Kod + tracking hazır: `src/components/blocks/Hero.tsx` (`hero_headline_variant`, `hero_headline_variant_view`), baseline: `docs/ANALYTICS_BASELINE.md`, issue mapping: `scripts/update_github_issue_statuses.mjs` → `status:Blocked` | Canlı trafikte minimum örneklem eşiği dolunca kazanan headline’ı sabitle ve Done’a çek |
+| Analytics baseline event doğrulaması | In-Progress | Event sözlüğü: `docs/ANALYTICS_BASELINE.md`; event transport: `src/lib/analytics.ts`; event tetik noktaları: `Hero.tsx`, `Contact.tsx` | Eventlerin canlıda aktığına dair ölçüm ekranı/log kanıtı ekle |
+| Issue status panel senkronu | Done | Komut çalıştırıldı: `node scripts/update_github_issue_statuses.mjs --owner "SydneySFco" --repo "GradeUp"` (env export ile), #18/#19 Blocked olarak güncellendi | Sonraki iterasyonda sadece canlı veri sonrası Done geçişi için tekrar çalıştır |
 | Lint uyarılarının temizlenmesi (opsiyonel kalite kapanışı) | Open | `docs/EXECUTION_PLAN_30D.md` Validation Notes: `src/components/projects/ProjectsClient.tsx` içinde 2 unused-var uyarısı | Kapsam uygunsa uyarıları temizle; değilse teknik borç kaydı aç |
 
 ## In-Review Odaklı Net Kapanış Kriteri (öneri)
